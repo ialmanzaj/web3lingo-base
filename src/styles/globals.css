@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    background-color: #000000;
+}
+body {
+    position: relative!important;
+}
+.theme-dark {
+    --color-bg-default: #000000!important;
+    --color-text-default: #f2f2f2!important;
+    --color-border-default: #242424!important;
+    --theme-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 98%)!important;
+    --color-pill-gray: #151517!important;
+    --scrollbar-thumb-color: #383838!important;
+}
+
+.notion-header  {
+    width: 100%;
+    margin-bottom: 16px;
+    font-family: var(--primary-font);
+}
+
+.notion-header__cover {
+    overflow: hidden;
+    position: relative;
+    height: var(--header-cover-height);
+    max-height: calc(100vh - var(--navbar-height));
+    display: var(--header-display);
+}
+
+.footer-cover, .footer-cover:before, .notion-header__cover.has-cover, .notion-header__cover:after {
+    width: 100%!important;
+    position: absolute!important;
+}
+
+.notion-header__cover.has-cover {
+    top: 0!important;
+    margin-top: -20px!important;
+    height: 60vh!important;
+    max-height: 60vh!important;
+    z-index: -2!important;
+    opacity: var(--bg-opacity)!important;
+}
+
+.header__cover:after {
+    content: ""!important;
+    z-index: 1!important;
+    bottom: -2px!important;
+    left: 0!important;
+    background-image: var(--theme-gradient)!important;
+    height: 100%!important;
+}
+
+.notion-header__cover-image {
+    object-fit: cover;
+    width: 100%;
+}
+
+.super-content-wrapper {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.super-content {
+    padding-bottom: 10vh!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    max-width: var(--max-width)!important;
+    margin: auto;
+}
+
+.footer-cover {
+    background-color: var(--color-bg-default)!important;
+    background: var(--footerCover)!important;
+    background-size: cover!important;
+    z-index: -1!important;
+    min-width: 100%!important;
+    min-height: 25%!important;
+    height: auto!important;
+    opacity: 1!important;
+    bottom: 0!important;
+    left: 0!important;
+    opacity: var(--bg-opacity)!important;
+    transform: rotate(180deg)!important;
+    border: 0!important;
+}
+
+.footer-cover:before, .notion-header__cover:after {
+    content: ""!important;
+    z-index: 1!important;
+    bottom: -2px!important;
+    left: 0!important;
+    background-image: var(--theme-gradient)!important;
+    height: 100%!important;
+}

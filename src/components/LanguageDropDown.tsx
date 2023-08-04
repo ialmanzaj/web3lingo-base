@@ -21,7 +21,7 @@ export const LanguageDropDown = () => {
         }
       }}
     >
-      <span className="text-md uppercase">Site language: English</span>{" "}
+      <span className="text-md uppercase">English</span>{" "}
       <ChevronDownSvg />
       {languagesShown && (
         <ul className="absolute top-full right-0 grid w-[500px] grid-cols-2 rounded-2xl border-2 border-gray-200 bg-white p-6 font-light text-gray-600">

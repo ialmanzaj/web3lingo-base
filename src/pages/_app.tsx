@@ -7,10 +7,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>React Duolingo</title>
+        <title>Aprendiendo DeFi | Web3</title>
         <meta
           name="description"
-          content="Duolingo web app clone written with React"
+          content="Aprende DeFi facil y divertido"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
