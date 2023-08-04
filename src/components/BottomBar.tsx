@@ -14,7 +14,7 @@ export const useBottomBarItems = () => {
 
   const bottomBarItems: BottomBarItem[] = [
     {
-      name: "Learn",
+      name: "Lecciones",
       href: "/learn",
       icon: (
         <svg
@@ -46,8 +46,8 @@ export const useBottomBarItems = () => {
         </svg>
       ),
     },
-    {
-      name: "Shop",
+   /*  {
+      name: "Lending",
       href: "/shop",
       icon: (
         <svg
@@ -133,7 +133,7 @@ export const useBottomBarItems = () => {
           />
         </svg>
       ),
-    },
+    }, */
   ];
 
   if (loggedIn) {

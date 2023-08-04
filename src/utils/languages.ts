@@ -1,8 +1,8 @@
 export type Language = (typeof languages)[number];
 
 const languages = [
-  { name: "English", nativeName: "English", viewBox: "0 0 82 66", code: "en" },
-  { name: "Spanish", nativeName: "Español", viewBox: "0 66 82 66", code: "es" },
+  { name: "Intro a Uniswap", nativeName: "English", viewBox: "0 0 82 66", code: "en" },
+  { name: "Intro a wallet", nativeName: "Español", viewBox: "0 66 82 66", code: "es" },
   
 ] as const;
 

@@ -508,7 +508,7 @@ const Learn: NextPage = () => {
       />
       <LeftBar selectedTab="Learn" />
 
-      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12">
+      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12 bg-white">
         <div className="flex max-w-2xl grow flex-col">
           {units.map((unit) => (
             <UnitSection unit={unit} key={unit.unitNumber} />
@@ -630,7 +630,7 @@ const UnitHeader = ({
           <p className="text-lg">{description}</p>
         </div>
         <Link
-          href={`https://duolingo.com/guidebook/${language.code}/${unitNumber}`}
+          href={``}
           className={[
             "flex items-center gap-3 rounded-2xl border-2 border-b-4 p-3 transition hover:text-gray-100",
             borderColor,
