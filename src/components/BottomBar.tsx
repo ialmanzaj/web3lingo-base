@@ -7,14 +7,14 @@ type BottomBarItem = {
   icon: JSX.Element;
 };
 
-export type Tab = "Learn" | "Shop" | "Profile" | "Leaderboards";
+export type Tab = "Aprender" | "Shop" | "Profile" | "Leaderboards";
 
 export const useBottomBarItems = () => {
   const loggedIn = useBoundStore((x) => x.loggedIn);
 
   const bottomBarItems: BottomBarItem[] = [
     {
-      name: "Lecciones",
+      name: "Aprender",
       href: "/learn",
       icon: (
         <svg
