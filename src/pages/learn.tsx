@@ -626,7 +626,7 @@ const UnitHeader = ({
     >
       <header className="flex items-center justify-between gap-4 p-4">
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl font-bold">Unit {unitNumber}</h2>
+          <h2 className="text-2xl font-bold">Leccion {unitNumber}</h2>
           <p className="text-lg">{description}</p>
         </div>
         <Link
