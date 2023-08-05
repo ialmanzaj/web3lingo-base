@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       style={{ backgroundImage: `url(${bgSnow.src})` }}
     >
       <LanguageHeader />
-      
+
       <div className="super-content-wrapper">
         <div className="notion-header">
           <div className="notion-header__cover has-cover">
@@ -137,28 +137,35 @@ const Home: NextPage = () => {
             Aprende web3 y DeFi de manera facil y divertida
           </p>
           <div className="mx-auto mt-4 flex w-fit flex-col items-center gap-3">
-            <Link
-              href="/register"
+            {/* <Link
+              href="/"
               className="w-full rounded-2xl border-b-4 border-green-700 bg-green-600 px-10 py-3 text-center font-bold uppercase transition hover:border-green-600 hover:bg-green-500 md:min-w-[320px]"
             >
-              Empezar ahora
-            </Link>
-            <button
+              Join the waitlist
+            </Link> */}
+            <div className="flex w-full flex-col gap-2">
+          <input
+            className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3"
+            placeholder="Email"
+          />
+          <button className="w-full rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-110">
+            Join the waitlist
+          </button>
+        </div>
+            {/* <button
               className="w-full rounded-2xl border-2 border-b-4  px-8 py-3 font-bold uppercase transition md:min-w-[320px]"
               onClick={() => setLoginScreenState("LOGIN")}
             >
               Ya tengo una cuenta
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
 
-
-
-      <LoginScreen
+      {/* <LoginScreen
         loginScreenState={loginScreenState}
         setLoginScreenState={setLoginScreenState}
-      />
+      /> */}
     </main>
   );
 };
