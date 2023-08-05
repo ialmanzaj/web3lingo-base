@@ -2,17 +2,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { supabase } from '../../utils/supabase';
 
 
-interface Message {
+interface WaitlistItem {
   // Define the shape of the "message" object here based on your database schema
   // For example:
-  id: number;
   email: string;
-  createdAt: string;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const body: Message = req.body;
+    const body = req.body as WaitlistItem;
     try {
       const { data, error } = await supabase.from('waitlist').insert(body);
       if (!error) {

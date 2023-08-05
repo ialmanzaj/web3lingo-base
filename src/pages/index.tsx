@@ -1,44 +1,44 @@
-import { type NextPage, NextApiRequest, NextApiResponse } from "next";
+import { type NextPage } from "next";
 
-import Link from "next/link";
 import { GlobeSvg } from "../components/Svgs";
 import React, { useState } from "react";
 import { LanguageHeader } from "../components/LanguageHeader";
-import { useLoginScreen, LoginScreen } from "../components/LoginScreen";
+
 import _bgSnow from "../../public/bg-snow.svg";
 import type { StaticImageData } from "next/image";
-import { LanguageCarousel } from "../components/LanguageCarousel";
+
 
 const bgSnow = _bgSnow as StaticImageData;
 
 const Home: NextPage = () => {
-  const { loginScreenState, setLoginScreenState } = useLoginScreen();
+  //const { loginScreenState, setLoginScreenState } = useLoginScreen();
   const [email, setEmail] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const formData = { email }; // Create an object with the email value
-      console.log(formData)
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    const formData = { email }; // Create an object with the email value
+    console.log(formData);
 
-      if (response.ok) {
-        // Handle successful form submission or show a success message
-        console.log('Form submitted successfully!');
-      } else {
-        console.error(response);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Handle successful form submission or show a success message
+          console.log('Form submitted successfully!');
+        } else {
+          console.error(response);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
 
