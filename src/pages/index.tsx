@@ -1,7 +1,8 @@
-import { type NextPage } from "next";
+import { type NextPage, NextApiRequest, NextApiResponse } from "next";
+
 import Link from "next/link";
 import { GlobeSvg } from "../components/Svgs";
-import React from "react";
+import React, { useState } from "react";
 import { LanguageHeader } from "../components/LanguageHeader";
 import { useLoginScreen, LoginScreen } from "../components/LoginScreen";
 import _bgSnow from "../../public/bg-snow.svg";
@@ -12,6 +13,35 @@ const bgSnow = _bgSnow as StaticImageData;
 
 const Home: NextPage = () => {
   const { loginScreenState, setLoginScreenState } = useLoginScreen();
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const formData = { email }; // Create an object with the email value
+      console.log(formData)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle successful form submission or show a success message
+        console.log('Form submitted successfully!');
+      } else {
+        console.error(response);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   return (
     <main
       className="theme-dark flex min-h-screen flex-col items-center justify-center text-white"
@@ -143,15 +173,22 @@ const Home: NextPage = () => {
             >
               Join the waitlist
             </Link> */}
-            <div className="flex w-full flex-col gap-2">
-          <input
-            className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3"
-            placeholder="Email"
-          />
-          <button className="w-full rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-110">
-            Join the waitlist
-          </button>
-        </div>
+            <form onSubmit={handleSubmit} className="waitlist">
+              <div className="flex w-full flex-col gap-4">
+                <input
+                  className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3 text-slate-500"
+                  placeholder="Your Email Address"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button type="submit" className="w-full rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-110">
+                  Join the waitlist
+                </button>
+              </div>
+
+            </form>
+
             {/* <button
               className="w-full rounded-2xl border-2 border-b-4  px-8 py-3 font-bold uppercase transition md:min-w-[320px]"
               onClick={() => setLoginScreenState("LOGIN")}
