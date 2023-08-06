@@ -1,9 +1,9 @@
-export type Language = (typeof languages)[number];
+export type Language = (typeof chapters)[number];
 
-const languages = [
-  { name: "Intro a Uniswap", nativeName: "English", viewBox: "0 0 82 66", code: "en" },
-  { name: "Intro a wallet", nativeName: "Español", viewBox: "0 66 82 66", code: "es" },
+const chapters = [
+  { name: "Intro a wallets", nativeName: "Español", viewBox: "0 66 82 66", code: "es" , href:"/wallets"},
+  { name: "Intro a Uniswap", nativeName: "English", viewBox: "0 0 82 66", code: "en", href:"/uniswap"},
   
 ] as const;
 
-export default languages;
+export default chapters;

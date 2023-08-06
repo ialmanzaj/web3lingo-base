@@ -41,7 +41,7 @@ export const LeftBar = ({ selectedTab }: { selectedTab: Tab | null }) => {
       <nav className="fixed left-0 top-0 bottom-0 hidden flex-col gap-5 border-r-2 border-[#e5e5e5] bg-white p-3 md:flex lg:w-64 lg:p-5">
         <Link
           href="/learn"
-          className="ml-5 mb-5 mt-5 hidden text-3xl font-bold text-[#58cc02] lg:block"
+          className="ml-5 mb-5 mt-5 hidden text-3xl font-bold text-[#000] lg:block"
         >
           Aprendiendo DeFi
         </Link>
