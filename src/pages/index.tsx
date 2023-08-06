@@ -5,12 +5,12 @@ import React, { useState } from "react";
 import { LanguageHeader } from "../components/LanguageHeader";
 
 import _bgSnow from "../../public/bg-snow.svg";
-import _weBack from "../../public/we-are-back.png";
+//import _weBack from "../../public/we-are-back.png";
 import type { StaticImageData } from "next/image";
 
 
 const bgSnow = _bgSnow as StaticImageData;
-const bgBack = _weBack as StaticImageData;
+//const bgBack = _weBack as StaticImageData;
 
 const Home: NextPage = () => {
   //const { loginScreenState, setLoginScreenState } = useLoginScreen();
