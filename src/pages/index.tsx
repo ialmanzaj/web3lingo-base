@@ -5,10 +5,12 @@ import React, { useState } from "react";
 import { LanguageHeader } from "../components/LanguageHeader";
 
 import _bgSnow from "../../public/bg-snow.svg";
+import _weBack from "../../public/we-are-back.png";
 import type { StaticImageData } from "next/image";
 
 
 const bgSnow = _bgSnow as StaticImageData;
+const bgBack = _weBack as StaticImageData;
 
 const Home: NextPage = () => {
   //const { loginScreenState, setLoginScreenState } = useLoginScreen();
@@ -17,8 +19,13 @@ const Home: NextPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!email.trim()) {
+      // Display an error message or take any other action
+      console.error('Email field cannot be empty.');
+      return;
+    }
+
     const formData = { email }; // Create an object with the email value
-    console.log(formData);
 
     fetch('/api/contact', {
       method: 'POST',
@@ -42,12 +49,16 @@ const Home: NextPage = () => {
   };
 
 
+
   return (
     <main
       className="theme-dark flex min-h-screen flex-col items-center justify-center text-white"
       style={{ backgroundImage: `url(${bgSnow.src})` }}
     >
       <LanguageHeader />
+      {/* <div  className="h-4/5 w-full	bg-cover bg-center -z-20 absolute" style={{ backgroundImage: `url(${bgBack.src})` }}>
+
+      </div> */}
 
       <div className="super-content-wrapper">
         <div className="notion-header">

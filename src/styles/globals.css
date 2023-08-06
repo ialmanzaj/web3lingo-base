@@ -4,6 +4,7 @@
 
 html {
     background-color: #000000;
+    --bg-opacity: .5!important;
 }
 
 body {
@@ -41,8 +42,8 @@ body {
 .notion-header__cover.has-cover {
     top: 0 !important;
     margin-top: -20px !important;
-    height: 60vh !important;
-    max-height: 60vh !important;
+    height: 50vh !important;
+    max-height: 50vh !important;
     z-index: -2 !important;
     opacity: var(--bg-opacity) !important;
 }
@@ -62,7 +63,6 @@ body {
 }
 
 .super-content-wrapper {
-    flex-grow: 1;
     width: 100%;
 }
 
@@ -109,3 +109,18 @@ body {
     height: auto;
     box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 0px inset, rgba(238, 238, 238, 0.15) 0px 0px 0px 1px inset;
 }
+
+input .invalid {
+    animation: shake 0.3s;
+  }
+  @keyframes shake {
+    25% {
+      transform: translate(4px);
+    }
+    50% {
+      transform: translate(-4px);
+    }
+    75% {
+      transform: translate(4px);
+    }
+  }
