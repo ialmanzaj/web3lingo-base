@@ -34,7 +34,7 @@ export const CourseDropDown = () => {
                   className="flex items-center gap-3 whitespace-nowrap rounded-xl p-3 hover:bg-gray-300"
                 >
                   <ThemeIcon course={language} width={24} />
-                  {language.nativeName}
+                  {language.description}
                 </Link>
               </li>
             );
