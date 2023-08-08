@@ -1,16 +1,16 @@
 import { type NextPage } from "next";
-
-import { GlobeSvg } from "../components/Svgs";
+import Link from "next/link";
 import React, { useState } from "react";
-import { LanguageHeader } from "../components/LanguageHeader";
-
+import { CourseHeader } from "../components/LanguageHeader";
+import { useBoundStore } from "../hooks/useBoundStore";
 import _bgSnow from "../../public/bg-snow.svg";
+
 import _logosDefi from "../../public/defi-logos.svg";
 import type { StaticImageData } from "next/image";
 
-
 const bgSnow = _bgSnow as StaticImageData;
 const bgDefi = _logosDefi as StaticImageData;
+
 
 const Home: NextPage = () => {
   //const { loginScreenState, setLoginScreenState } = useLoginScreen();
@@ -48,17 +48,17 @@ const Home: NextPage = () => {
       });
   };
 
-
+  const setLanguage = useBoundStore((x) => x.setLanguage);
 
   return (
     <main
       className="theme-dark flex min-h-screen flex-col items-center justify-center text-white"
       style={{ backgroundImage: `url(${bgSnow.src})` }}
     >
-      <LanguageHeader />
-       <div  className="h-full w-full	opacity-25 bg-no-repeat bg-center bg-cover -z-20 absolute" style={{ backgroundImage: `url(${bgDefi.src})` }}>
+      <CourseHeader />
+      <div className="h-full w-full	opacity-25 bg-no-repeat bg-center bg-cover -z-20 absolute" style={{ backgroundImage: `url(${bgDefi.src})` }}>
 
-      </div> 
+      </div>
 
       <div className="super-content-wrapper">
         <div className="notion-header">
@@ -172,18 +172,21 @@ const Home: NextPage = () => {
 
 
       <div className="flex w-full flex-col items-center justify-center gap-3 px-4 py-16 md:flex-row md:gap-36">
-       {/*  <GlobeSvg className="h-fit w-7/12 md:w-[360px]" /> */}
+        {/*  <GlobeSvg className="h-fit w-7/12 md:w-[360px]" /> */}
         <div>
           <p className="mb-6 max-w-[600px] text-center text-3xl font-bold md:mb-12">
             Aprende web3 y DeFi de manera facil y divertida
           </p>
           <div className="mx-auto mt-4 flex w-fit flex-col items-center gap-3">
-            {/* <Link
+            <Link
               href="/"
               className="w-full rounded-2xl border-b-4 border-green-700 bg-green-600 px-10 py-3 text-center font-bold uppercase transition hover:border-green-600 hover:bg-green-500 md:min-w-[320px]"
             >
               Join the waitlist
-            </Link> */}
+            </Link> 
+
+            
+            {/*  
             <form onSubmit={handleSubmit} className="waitlist">
               <div className="flex w-full flex-col gap-4">
                 <input
@@ -198,7 +201,7 @@ const Home: NextPage = () => {
                 </button>
               </div>
 
-            </form>
+            </form> */}
 
             {/* <button
               className="w-full rounded-2xl border-2 border-b-4  px-8 py-3 font-bold uppercase transition md:min-w-[320px]"

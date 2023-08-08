@@ -20,13 +20,13 @@ export const units: readonly Unit[] = [
   {
     unitNumber: 1,
     description: "Aprender que es un wallet",
-    backgroundColor: "bg-[#58cc02]",
-    textColor: "text-[#58cc02]",
-    borderColor: "border-[#46a302]",
+    backgroundColor: "bg-[#3B0764]",
+    textColor: "text-[#3B0764]",
+    borderColor: "border-[#6B21A8]",
     tiles: [
       {
         type: "star",
-        description: "Form basic sentences",
+        description: "Configurando tu primer wallet",
       },
       {
         type: "book",
@@ -41,7 +41,7 @@ export const units: readonly Unit[] = [
       { type: "trophy", description: "Unit 1 review" },
     ],
   },
-  {
+  /* {
     unitNumber: 2,
     description: "Get around in a city",
     backgroundColor: "bg-[#ce82ff]",
@@ -60,8 +60,8 @@ export const units: readonly Unit[] = [
       { type: "dumbbell", description: "Personalized practice" },
       { type: "trophy", description: "Unit 2 review" },
     ],
-  },
-  {
+  }, */
+  /* {
     unitNumber: 3,
     description: "Order food and drink",
     backgroundColor: "bg-[#00cd9c]",
@@ -79,5 +79,5 @@ export const units: readonly Unit[] = [
       { type: "book", description: "Doctor Eddy" },
       { type: "trophy", description: "Unit 2 review" },
     ],
-  },
+  }, */
 ];

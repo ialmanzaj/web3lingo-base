@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { ComponentProps } from "react";
 import React, { useState } from "react";
 import type { Tab } from "./BottomBar";
 import { useBottomBarItems } from "./BottomBar";
@@ -7,24 +6,7 @@ import type { LoginScreenState } from "./LoginScreen";
 import { LoginScreen } from "./LoginScreen";
 import { GlobeIconSvg, PodcastIconSvg } from "./Svgs";
 import { useBoundStore } from "../hooks/useBoundStore";
-
-const LeftBarMoreMenuSvg = (props: ComponentProps<"svg">) => {
-  return (
-    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" {...props}>
-      <circle
-        cx="23"
-        cy="23"
-        r="19"
-        fill="#CE82FF"
-        stroke="#CE82FF"
-        strokeWidth="2"
-      />
-      <circle cx="15" cy="23" r="2" fill="white" />
-      <circle cx="23" cy="23" r="2" fill="white" />
-      <circle cx="31" cy="23" r="2" fill="white" />
-    </svg>
-  );
-};
+import { LeftBarMoreMenuSvg } from "./Svgs";
 
 export const LeftBar = ({ selectedTab }: { selectedTab: Tab | null }) => {
   const loggedIn = useBoundStore((x) => x.loggedIn);
@@ -40,7 +22,7 @@ export const LeftBar = ({ selectedTab }: { selectedTab: Tab | null }) => {
     <>
       <nav className="fixed left-0 top-0 bottom-0 hidden flex-col gap-5 border-r-2 border-[#e5e5e5] bg-white p-3 md:flex lg:w-64 lg:p-5">
         <Link
-          href="/learn"
+          href="/"
           className="ml-5 mb-5 mt-5 hidden text-3xl font-bold text-[#000] lg:block"
         >
           Aprendiendo DeFi
@@ -88,7 +70,7 @@ export const LeftBar = ({ selectedTab }: { selectedTab: Tab | null }) => {
               <div className="flex flex-col py-2">
                 <Link
                   className="flex items-center gap-4 py-2 px-5 text-left uppercase hover:bg-gray-100"
-                  href="https://schools.duolingo.com"
+                  href="/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -97,7 +79,7 @@ export const LeftBar = ({ selectedTab }: { selectedTab: Tab | null }) => {
                 </Link>
                 <Link
                   className="flex items-center gap-4 py-2 px-5 text-left uppercase hover:bg-gray-100"
-                  href="https://podcast.duolingo.com"
+                  href="/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

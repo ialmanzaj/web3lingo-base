@@ -3,7 +3,7 @@ import { ChevronLeftSvg, ChevronRightSvg } from "./Svgs";
 import React, { useRef } from "react";
 import languages from "../utils/languages";
 import { useBoundStore } from "../hooks/useBoundStore";
-import { Flag } from "./Flag";
+import { ThemeIcon } from "./Flag";
 
 declare global {
   interface Element {
@@ -113,7 +113,7 @@ export const LanguageCarousel = () => {
                 href={"/learn"}
                 onClick={() => setLanguage(language)}
               >
-                <Flag language={language} width={40} />
+                <ThemeIcon course={language} width={40} />
                 <span className="text-sm font-bold uppercase">
                   {language.name}
                 </span>

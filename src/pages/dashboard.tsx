@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import themes from "../utils/languages";
-import { LanguageHeader } from "../components/LanguageHeader";
+import { CourseHeader } from "../components/LanguageHeader";
 import _bgSnow from "../../public/bg-snow.svg";
 import type { StaticImageData } from "next/image";
 
@@ -13,7 +13,7 @@ const Dashboard: NextPage = () => {
       className="flex min-h-screen flex-col items-center bg-[#000] text-white"
       style={{ backgroundImage: `url(${bgSnow.src})` }}
     >
-      <LanguageHeader />
+      <CourseHeader />
       <div className="container flex grow flex-col items-center  gap-20 px-4 py-16">
 
         <section className="container my-auto mx-auto sm:px-4 pt-10  text-white">

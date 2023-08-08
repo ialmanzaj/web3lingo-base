@@ -1,14 +1,14 @@
-import languages, { type Language } from "../utils/languages";
+import courses, { type Course } from "../utils/languages";
 import type { BoundStateCreator } from "../hooks/useBoundStore";
 
-export type LanguageSlice = {
-  language: Language;
-  setLanguage: (newLanguage: Language) => void;
+export type CourseSlice = {
+  course: Course;
+  setLanguage: (newCourse: Course) => void;
 };
 
 const spanishLanguageIndex = 1;
 
-export const createLanguageSlice: BoundStateCreator<LanguageSlice> = (set) => ({
-  language: languages[spanishLanguageIndex],
-  setLanguage: (newLanguage: Language) => set({ language: newLanguage }),
+export const createCourseSlice: BoundStateCreator<CourseSlice> = (set) => ({
+  course: courses[spanishLanguageIndex],
+  setLanguage: (newCourse: Course) => set({ course: newCourse }),
 });

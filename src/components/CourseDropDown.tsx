@@ -2,9 +2,9 @@ import { ChevronDownSvg } from "./Svgs";
 import { useState } from "react";
 import languages from "../utils/languages";
 import Link from "next/link";
-import { Flag } from "./Flag";
+import { ThemeIcon } from "./Flag";
 
-export const LanguageDropDown = () => {
+export const CourseDropDown = () => {
   const [languagesShown, setLanguagesShown] = useState(false);
   return (
     <div
@@ -29,11 +29,11 @@ export const LanguageDropDown = () => {
             return (
               <li key={language.code}>
                 <Link
-                  href={`https://${language.code}.duolingo.com/`}
+                  href={`/`}
                   tabIndex={0}
                   className="flex items-center gap-3 whitespace-nowrap rounded-xl p-3 hover:bg-gray-300"
                 >
-                  <Flag language={language} width={24} />
+                  <ThemeIcon course={language} width={24} />
                   {language.nativeName}
                 </Link>
               </li>

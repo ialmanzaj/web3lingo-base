@@ -2,8 +2,8 @@ import type { StateCreator } from "zustand";
 import { create } from "zustand";
 import type { GoalXpSlice } from "../stores/createGoalXpStore";
 import { createGoalXpSlice } from "../stores/createGoalXpStore";
-import type { LanguageSlice } from "../stores/createLanguageStore";
-import { createLanguageSlice } from "../stores/createLanguageStore";
+import type { CourseSlice } from "../stores/createLanguageStore";
+import { createCourseSlice } from "../stores/createLanguageStore";
 import type { LessonSlice } from "../stores/createLessonStore";
 import { createLessonSlice } from "../stores/createLessonStore";
 import type { LingotSlice } from "../stores/createLingotStore";
@@ -18,7 +18,7 @@ import type { XpSlice } from "../stores/createXpStore";
 import { createXpSlice } from "../stores/createXpStore";
 
 type BoundState = GoalXpSlice &
-  LanguageSlice &
+  CourseSlice &
   LessonSlice &
   LingotSlice &
   SoundSettingsSlice &
@@ -35,7 +35,7 @@ export type BoundStateCreator<SliceState> = StateCreator<
 
 export const useBoundStore = create<BoundState>((...args) => ({
   ...createGoalXpSlice(...args),
-  ...createLanguageSlice(...args),
+  ...createCourseSlice(...args),
   ...createLessonSlice(...args),
   ...createLingotSlice(...args),
   ...createSoundSettingsSlice(...args),
