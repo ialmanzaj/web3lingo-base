@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronLeftSvg, ChevronRightSvg } from "./Svgs";
 import React, { useRef } from "react";
-import languages from "../utils/languages";
+import languages from "../utils/courses";
 import { useBoundStore } from "../hooks/useBoundStore";
 import { ThemeIcon } from "./Flag";
 

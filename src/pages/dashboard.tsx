@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import themes from "../utils/languages";
+import courses from "../utils/courses";
 import { CourseHeader } from "../components/LanguageHeader";
 import _bgSnow from "../../public/bg-snow.svg";
 import type { StaticImageData } from "next/image";
@@ -18,7 +18,7 @@ const Dashboard: NextPage = () => {
 
         <section className="container my-auto mx-auto sm:px-4 pt-10  text-white">
           <div className="flex flex-wrap lg:h-full content-center justify-center">
-            {themes.map((theme) => (
+            {courses.map((theme) => (
               <div
                 key={theme.name}
                 style={{

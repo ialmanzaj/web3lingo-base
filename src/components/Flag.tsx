@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 import _flagsSvg from "../../public/flags.svg";
-import type { Course } from "../utils/languages";
+import type { Course } from "../utils/courses";
 
 const flagsSvg = _flagsSvg as StaticImageData;
 

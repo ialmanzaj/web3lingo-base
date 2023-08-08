@@ -1,4 +1,4 @@
-import courses, { type Course } from "../utils/languages";
+import courses, { type Course } from "../utils/courses";
 import type { BoundStateCreator } from "../hooks/useBoundStore";
 
 export type CourseSlice = {
