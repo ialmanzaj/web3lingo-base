@@ -36,7 +36,7 @@ export const QuitMessage = ({
         <div className="flex grow flex-col items-center justify-center gap-4 sm:flex-row-reverse">
           <Link
             className="flex w-full items-center justify-center rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-105 sm:w-48"
-            href="/learn"
+            href="/wallets"
           >
             Quit
           </Link>

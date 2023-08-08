@@ -110,7 +110,7 @@ export const LanguageCarousel = () => {
               <Link
                 key={language.code}
                 className="flex items-center gap-2"
-                href={"/learn"}
+                href={"/wallets"}
                 onClick={() => setLanguage(language)}
               >
                 <ThemeIcon course={language} width={40} />

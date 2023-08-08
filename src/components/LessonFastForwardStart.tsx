@@ -23,7 +23,7 @@ export const LessonFastForwardStart = ({
       <section className="border-gray-200 sm:border-t-2 sm:p-10">
         <div className="mx-auto flex max-w-5xl flex-col-reverse items-center gap-5 sm:flex-row sm:justify-between">
           <Link
-            href="/learn"
+            href="/wallets"
             className="font-bold uppercase text-blue-400 transition hover:brightness-110"
           >
             Maybe later

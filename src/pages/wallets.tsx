@@ -65,9 +65,9 @@ const Wallets: NextPage = () => {
       />
       <LeftBar selectedTab="Aprender" />
 
-      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12 bg-[#E9F2FF]">
+      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12 bg-white">
 
-       {/*  <RightBar /> */}
+        <RightBar /> 
 
         <div className="flex max-w-2xl grow flex-col">
           {units.map((unit) => (

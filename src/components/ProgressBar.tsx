@@ -17,7 +17,7 @@ export const ProgressBar = ({
   return (
     <header className="flex items-center gap-4">
       {correctAnswerCount === 0 ? (
-        <Link href="/learn" className="text-gray-400">
+        <Link href="/wallets" className="text-gray-400">
           <CloseSvg />
           <span className="sr-only">Exit lesson</span>
         </Link>
