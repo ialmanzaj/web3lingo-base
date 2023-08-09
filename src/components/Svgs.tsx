@@ -1,7 +1,4 @@
 import type { ComponentProps } from "react";
-import type { ComponentProps, ComponentProps } from "react";
-import React from "react";
-
 import { BiWalletAlt } from "react-icons/bi";
 import { FaEthereum } from "react-icons/fa";
 import { GoHome } from "react-icons/go";
