@@ -1,7 +1,15 @@
-import { redirect } from 'next/navigation';
+import type { NextRequest } from 'next/server';
  
-export const runtime = 'edge';
+export const config = {
+  runtime: 'edge',
+};
  
-export async function GET(request: Request) {
-  redirect('https://aprendiendodefi.framer.ai/');
+export default async function handler(req: NextRequest) {
+  return new Response(null, {
+    status: 307, // Use 308 for a permanent redirect, 307 for a temporary redirect
+    headers: {
+      Location: 'https://aprendiendodefi.framer.ai/',
+      'Cache-Control': 'public, max-age=1200, must-revalidate',
+    },
+  });
 }
