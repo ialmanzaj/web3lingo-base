@@ -6,6 +6,16 @@ await import("./src/env.mjs");
 
 /** @type {import("next").NextConfig} */
 const config = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: 'https://aprendiendodefi.framer.ai/',
+        permanent: true,
+      },
+
+    ];
+  },
   reactStrictMode: true,
 
   /**

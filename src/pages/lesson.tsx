@@ -18,7 +18,7 @@ export const lessonProblem1 = {
   type: "SELECT_1_OF_3",
   question: `Which one of these is "the apple"?`,
   answers: [
-    { icon: <AppleSvg />, name: "la manzana" },
+    { icon: <AppleSvg />, name: "la pera" },
     { icon: <BoySvg />, name: "el niño" },
     { icon: <WomanSvg />, name: "la mujer" },
   ],
