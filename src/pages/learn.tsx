@@ -41,7 +41,7 @@ type TileStatus = "LOCKED" | "ACTIVE" | "COMPLETE";
 const tileStatus = (tile: Tile, lessonsCompleted: number): TileStatus => {
   const lessonsPerTile = 4;
   const tilesCompleted = Math.floor(lessonsCompleted / lessonsPerTile);
-  const tiles = units.flatMap((unit) => unit.tiles);
+  const tiles = units.flatMap((unit) => unit.subtiles);
   const tileIndex = tiles.findIndex((t) => t === tile);
 
   if (tileIndex < tilesCompleted) {
@@ -284,7 +284,7 @@ const TileTooltip = ({
               activeTextColor,
             ].join(" ")}
           >
-            Start +10 XP
+            Empieza +10 XP
           </Link>
         ) : status === "LOCKED" ? (
           <button
@@ -298,7 +298,7 @@ const TileTooltip = ({
             href="/lesson"
             className="flex w-full items-center justify-center rounded-xl border-b-4 border-yellow-200 bg-white p-3 uppercase text-yellow-400"
           >
-            Practice +5 XP
+            Practica +5 XP
           </Link>
         )}
       </div>
@@ -328,13 +328,14 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
   return (
     <>
       <UnitHeader
+        title={unit.title}
         unitNumber={unit.unitNumber}
         description={unit.description}
         backgroundColor={unit.backgroundColor}
         borderColor={unit.borderColor}
       />
       <div className="relative mt-[67px] mb-8 flex max-w-2xl flex-col items-center gap-4">
-        {unit.tiles.map((tile, i): JSX.Element => {
+        {unit.subtiles.map((tile, i): JSX.Element => {
           const status = tileStatus(tile, lessonsCompleted);
           return (
             <Fragment key={i}>
@@ -362,7 +363,7 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
                           getTileLeftClassName({
                             index: i,
                             unitNumber: unit.unitNumber,
-                            tilesLength: unit.tiles.length,
+                            tilesLength: unit.subtiles.length,
                           }),
                         ].join(" ")}
                       >
@@ -372,7 +373,7 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
                             textColor={unit.textColor}
                           />
                         ) : selectedTile !== i && status === "ACTIVE" ? (
-                          <HoverLabel text="Start" textColor={unit.textColor} />
+                          <HoverLabel text="Empieza!" textColor={unit.textColor} />
                         ) : null}
                         <LessonCompletionSvg
                           lessonsCompleted={lessonsCompleted}
@@ -413,7 +414,7 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
                           getTileLeftClassName({
                             index: i,
                             unitNumber: unit.unitNumber,
-                            tilesLength: unit.tiles.length,
+                            tilesLength: unit.subtiles.length,
                           }),
                         ].join(" ")}
                         onClick={() => {
@@ -439,7 +440,7 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
                 selectedTile={selectedTile}
                 index={i}
                 unitNumber={unit.unitNumber}
-                tilesLength={unit.tiles.length}
+                tilesLength={unit.subtiles.length}
                 description={(() => {
                   switch (tile.type) {
                     case "book":
@@ -508,7 +509,7 @@ const Learn: NextPage = () => {
       />
       <LeftBar selectedTab="Aprender" />
 
-      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12 bg-white">
+      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12 bg-gradient-to-b from-purple-200 via-purple-400 to-purple-800">
         <div className="flex max-w-2xl grow flex-col">
           {units.map((unit) => (
             <UnitSection unit={unit} key={unit.unitNumber} />
@@ -607,11 +608,13 @@ const HoverLabel = ({
 };
 
 const UnitHeader = ({
+  title,
   unitNumber,
   description,
   backgroundColor,
   borderColor,
 }: {
+  title: string;
   unitNumber: number;
   description: string;
   backgroundColor: `bg-${string}`;
@@ -626,7 +629,7 @@ const UnitHeader = ({
     >
       <header className="flex items-center justify-between gap-4 p-4">
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl font-bold">Leccion {unitNumber}</h2>
+          <h2 className="text-2xl font-bold">{title}</h2>
           <p className="text-lg">{description}</p>
         </div>
         {/* <Link

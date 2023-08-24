@@ -100,7 +100,7 @@ export const LoginScreen = ({
   return (
     <article
       className={[
-        "fixed inset-0 z-30 flex flex-col bg-white p-7 transition duration-300",
+        "fixed inset-0 z-30 flex flex-col bg-black p-7 transition duration-300",
         loginScreenState === "HIDDEN"
           ? "pointer-events-none opacity-0"
           : "opacity-100",

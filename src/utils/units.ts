@@ -1,10 +1,11 @@
 export type Unit = {
+  title: string;
   unitNumber: number;
   description: string;
   backgroundColor: `bg-${string}`;
   textColor: `text-${string}`;
   borderColor: `border-${string}`;
-  tiles: Tile[];
+  subtiles: Tile[];
 };
 
 export type Tile =
@@ -19,22 +20,23 @@ export type TileType = Tile["type"];
 export const units: readonly Unit[] = [
   {
     unitNumber: 1,
-    description: "Aprender que es un wallet",
+    title: "Wallets",
+    description: "Basic concepts on cypto wallet",
     backgroundColor: "bg-[#3B0764]",
     textColor: "text-[#3B0764]",
     borderColor: "border-[#6B21A8]",
-    tiles: [
+    subtiles: [
       {
         type: "star",
-        description: "Configurando tu primer wallet",
+        description: "Como funcionan los wallets",
       },
       {
         type: "book",
-        description: "Good morning",
+        description: "Introduccion a Smart wallets",
       },
       {
         type: "star",
-        description: "Greet people",
+        description: "Introduccion a Cold wallets",
       },
       { type: "treasure" },
       { type: "book", description: "A date" },

@@ -15,7 +15,7 @@ import { tileLeftClassNames } from "../components/tileLeftClassNames";
 import { UnitSection } from "../components/UnitSection";
 import { getTopBarColors } from "../components/getTopBarColors";
 
-export type TileStatus = "LOCKED" | "ACTIVE" | "COMPLETE";
+
 
 type TileLeftClassName = (typeof tileLeftClassNames)[number];
 
@@ -106,5 +106,4 @@ const Wallets: NextPage = () => {
 };
 
 export default Wallets;
-
 

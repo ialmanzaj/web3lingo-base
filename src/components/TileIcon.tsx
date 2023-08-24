@@ -15,7 +15,7 @@ import {
   ActiveDumbbellSvg
 } from "./Svgs";
 import type { TileType } from "../utils/units";
-import { TileStatus } from "../pages/wallets";
+import { TileStatus } from "./tileStatus";
 
 export const TileIcon = ({
   tileType, status,

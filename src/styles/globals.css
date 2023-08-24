@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 html {
-    background-color: #000000;
     --bg-opacity: .5!important;
 }
 
@@ -124,3 +123,4 @@ input .invalid {
       transform: translate(4px);
     }
   }
+

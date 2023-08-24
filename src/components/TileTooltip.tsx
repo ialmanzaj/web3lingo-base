@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { units } from "../utils/units";
-import { TileStatus } from "../pages/wallets";
+import { TileStatus } from "./tileStatus";
 import { getTileTooltipLeftOffset } from "./getTileTooltipLeftOffset";
 
 

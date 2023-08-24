@@ -4,7 +4,7 @@ import {
   LessonCompletionSvg2,
   LessonCompletionSvg3
 } from "./Svgs";
-import { TileStatus } from "../pages/wallets";
+import { TileStatus } from "./tileStatus";
 
 
 export const LessonCompletionSvg = ({

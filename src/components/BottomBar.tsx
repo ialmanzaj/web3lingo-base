@@ -17,7 +17,7 @@ export const useBottomBarItems = () => {
   const bottomBarItems: BottomBarItem[] = [
     {
       name: "Aprender",
-      href: "/wallets",
+      href: "/learn",
       icon: (
         homeIcon
       ),

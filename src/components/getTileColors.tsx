@@ -1,5 +1,5 @@
 import type { TileType } from "../utils/units";
-import { TileStatus } from "../pages/wallets";
+import { TileStatus } from "./tileStatus";
 
 export const getTileColors = ({
   tileType, status, defaultColors,
