@@ -6,7 +6,7 @@ export type LingotSlice = {
 };
 
 export const createLingotSlice: BoundStateCreator<LingotSlice> = (set) => ({
-  lingots: 0,
+  lingots: 1,
   increaseLingots: (by: number) =>
     set(({ lingots }) => ({ lingots: lingots + by })),
 });

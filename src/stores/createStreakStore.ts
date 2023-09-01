@@ -35,7 +35,7 @@ export const createStreakSlice: BoundStateCreator<StreakSlice> = (
   get
 ) => ({
   activeDays: new Set(),
-  streak: 0,
+  streak: 1,
   isActiveDay: (day: dayjs.Dayjs) => isActiveDay(get().activeDays, day),
   addToday: () => {
     const activeDays = addActiveDay(get().activeDays, dayjs());

@@ -204,7 +204,7 @@ export const TreasureProgressSvg = () => {
   );
 };
 
-export const LightningProgressSvg = ({ size = 56 }: { size?: number }) => {
+export const LightningProgressSvg = ({ size = 46 }: { size?: number }) => {
   return (
    
 <svg
@@ -2338,7 +2338,7 @@ export const EmptyFireSvg = (props: ComponentProps<"svg">) => {
           transform="translate(1.000000, 1.000000)"
           fillRule="nonzero"
         >
-          <g id="Group" fill="#E5E5E5" stroke="#FFFFFF" strokeWidth="2">
+          <g id="Group" fill="#2B2B2B" stroke="#FFFFFF" strokeWidth="2">
             <path
               d="M0.068,15.675 L0.044,7.216 C0.039,5.334 1.25,3.942 3.056,4.246 C3.413,4.306 3.998,4.491 4.306,4.656 L5.997,5.561 L9.247,1.464 C9.79255754,0.776391272 10.6222536,0.37555895 11.5,0.37555895 C12.3777464,0.37555895 13.2074425,0.776391272 13.753,1.464 L20.523,10 C22.1231469,11.939276 22.9988566,14.3747884 23,16.889 C23,23.034 17.843,28 11.5,28 C5.157,28 0,23.034 0,16.889 C0,16.481 0.023,16.076 0.068,15.675 Z"
               id="Path"
@@ -2401,7 +2401,7 @@ export const EmptyGemSvg = (props: ComponentProps<"svg">) => {
   return (
     <svg width="26" height="30" viewBox="0 0 26 30" {...props}>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g fill="#E5E5E5" stroke="#FFF" strokeWidth="2">
+        <g fill="#2B2B2B" stroke="#FFF" strokeWidth="2">
           <path d="M4.12 6.36l6.475-3.908a4.387 4.387 0 0 1 4.534 0l6.475 3.907a4.387 4.387 0 0 1 2.12 3.757v9.666a4.387 4.387 0 0 1-2.12 3.756l-6.475 3.907a4.387 4.387 0 0 1-4.534 0L4.12 23.538A4.387 4.387 0 0 1 2 19.782v-9.666c0-1.538.804-2.962 2.12-3.757z" />
         </g>
       </g>
@@ -3821,7 +3821,7 @@ export const LeftBarMoreMenuSvg = (props: ComponentProps<"svg">) => {
   );
 };export const TreasureClosedSvg = (props: ComponentProps<"svg">) => {
   return (
-    <svg width="76px" height="76px" viewBox="0 0 76 76" {...props}>
+    <svg width="46px" height="46px" viewBox="0 0 76 76" {...props}>
       <defs>
         <path
           d="M3.86139252,0 L68.6938776,0 C70.8264639,0 72.555269,1.71104633 72.555269,3.82172455 L72.555269,37.605593 C72.555269,39.7162712 70.8264639,41.4273175 68.6938776,41.4273175 L3.86139252,41.4273175 C1.72880408,41.4273175 0,39.7162712 0,37.605593 L0,3.82172455 C0,1.71104633 1.72880408,0 3.86139252,0 Z"
