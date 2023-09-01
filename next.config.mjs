@@ -8,11 +8,11 @@ await import("./src/env.mjs");
 const config = {
   async redirects() {
     return [
-      {
+      /* {
         source: '/',
         destination: 'https://aprendiendodefi.framer.ai/',
         permanent: true,
-      },
+      }, */
 
     ];
   },

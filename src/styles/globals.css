@@ -2,19 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    --bg-opacity: .5!important;
-}
 
-body {
-    position: relative !important;
-}
-
-.theme-dark {
-    --color-bg-default: #000000 !important;
-    --theme-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 98%) !important;
-    --scrollbar-thumb-color: #383838 !important;
-}
 
 .notion-header {
     width: 100%;
@@ -123,4 +111,3 @@ input .invalid {
       transform: translate(4px);
     }
   }
-

@@ -178,7 +178,18 @@ const Lesson: NextPage = () => {
   switch (problem.type) {
     case "SELECT_1_OF_3": {
       return (
-        <ProblemSelect1Of3
+        <>
+         <iframe
+        src="https://app.7taps.com/GNE8EhV39Lhmm"
+        title="ERC20 course"
+        width="760px"
+        height="680px"
+        style={{ borderRadius: 20, border: 0, display: "block", margin: "0 auto" }}
+      />
+        </>
+       
+      
+        /*{<ProblemSelect1Of3
           problem={problem}
           correctAnswerCount={correctAnswerCount}
           totalCorrectAnswersNeeded={totalCorrectAnswersNeeded}
@@ -192,7 +203,7 @@ const Lesson: NextPage = () => {
           onFinish={onFinish}
           onSkip={onSkip}
           hearts={hearts}
-        />
+        /> }*/
       );
     }
 
