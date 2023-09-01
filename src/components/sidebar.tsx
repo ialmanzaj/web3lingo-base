@@ -1,4 +1,3 @@
-import { Flex, ScrollArea, Button } from "@radix-ui/themes";
 
 export function Sidebar() {
   return (

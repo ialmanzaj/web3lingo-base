@@ -44,7 +44,7 @@ const Home: NextPage = () => {
         <Box grow="1" py="5">
           <Flex direction="column" gap="7">
             <Card asChild className="w-5/6 p-3" m="auto">
-              <Link href="/">
+              <Link href="/lesson">
                 <Box p="4">
                   <Flex>
                     <Flex direction="column" justify="between">
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                         con este curso de introducción.
                       </Text>
                       <Box py="4">
-                        <Link href="/" className="inline">
+                        <Text className="inline">
                           Ir al curso{" "}
                           <svg
                             className="inline"
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                              
                             ></path>
                           </svg>
-                        </Link>
+                        </Text>
                       </Box>
                       <Flex gap="2">
                         <Badge color="orange">Beginner</Badge>
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
               </Link>
             </Card>
             <Card asChild className="w-5/6 p-3" m="auto">
-              <Link href="/">
+              <Link href="/lesson-nft">
                 <Box p="4">
                   <Flex>
                     <Flex direction="column" justify="between">
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
                         con este curso de introducción.
                       </Text>
                       <Box py="4">
-                        <Link href="/" className="inline">
+                        <Text className="inline">
                           Ir al curso{" "}
                           <svg
                             className="inline"
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
                              
                             ></path>
                           </svg>
-                        </Link>
+                        </Text>
                       </Box>
                       <Flex gap="2">
                         <Badge color="orange">Beginner</Badge>
