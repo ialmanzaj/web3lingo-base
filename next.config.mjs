@@ -11,7 +11,7 @@ const config = {
       {
         source: '/',
         destination: 'https://aprendiendodefi.framer.ai/',
-        permanent: true,
+        permanent: false,
       },
 
     ];
