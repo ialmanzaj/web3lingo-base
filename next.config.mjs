@@ -8,6 +8,28 @@ await import("./src/env.mjs");
 const config = {
   async redirects() {
     return [
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'app.aprendiendodefi.com',
+          },
+        ],
+        permanent: false,
+        destination: '/dashboard',
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'www.aprendiendodefi.com',
+          },
+        ],
+        permanent: false,
+        destination: 'https://aprendiendodefi.framer.ai/',
+      },
       /* {
         source: '/',
         destination: 'https://aprendiendodefi.framer.ai/',
