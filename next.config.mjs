@@ -10,9 +10,20 @@ const config = {
     return [
       {
         source: '/',
-        destination: 'https://aprendiendodefi.framer.ai/',
+        has: [
+          {
+            type: 'host',
+            value: 'aprendiendodefi.com',
+          },
+        ],
         permanent: false,
+        destination: 'https://aprendiendodefi.framer.ai/',
       },
+      /* {
+        source: '/',
+        destination: '',
+        permanent: false,
+      }, */
 
     ];
   },
