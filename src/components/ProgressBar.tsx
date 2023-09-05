@@ -1,31 +1,29 @@
 import Link from "next/link";
 import React from "react";
-import {
-  CloseSvg, LessonTopBarEmptyHeart,
-  LessonTopBarHeart
-} from "./Svgs";
-
+import { CloseSvg, LessonTopBarEmptyHeart, LessonTopBarHeart } from "./Svgs";
+import { useRouter } from "next/router";
 
 export const ProgressBar = ({
-  correctAnswerCount, totalCorrectAnswersNeeded, setQuitMessageShown, hearts,
+  currentLesson,
+  totalLessons,
+  setQuitMessageShown,
+  hearts,
 }: {
-  correctAnswerCount: number;
-  totalCorrectAnswersNeeded: number;
+  currentLesson: number;
+  totalLessons: number;
   setQuitMessageShown: (isShown: boolean) => void;
   hearts: null | number;
 }) => {
+  const router = useRouter();
   return (
     <header className="flex items-center gap-4">
-      {correctAnswerCount === 0 ? (
-        <Link href="/wallets" className="text-gray-400">
+      {currentLesson === 0 ? (
+        <Link href="/dashboard" className="text-gray-400">
           <CloseSvg />
           <span className="sr-only">Exit lesson</span>
         </Link>
       ) : (
-        <button
-          className="text-gray-400"
-          onClick={() => setQuitMessageShown(true)}
-        >
+        <button className="text-gray-400" onClick={() => () => router.back()}>
           <CloseSvg />
           <span className="sr-only">Exit lesson</span>
         </button>
@@ -35,16 +33,18 @@ export const ProgressBar = ({
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={1}
-        aria-valuenow={correctAnswerCount / totalCorrectAnswersNeeded}
+        aria-valuenow={currentLesson / totalLessons}
       >
         <div
-          className={"h-full rounded-full bg-green-500 transition-all duration-700 " +
-            (correctAnswerCount > 0 ? "px-2 pt-1 " : "")}
+          className={
+            "h-full rounded-full bg-purple-500 transition-all duration-700 " +
+            (currentLesson > 0 ? "px-2 pt-1 " : "")
+          }
           style={{
-            width: `${(correctAnswerCount / totalCorrectAnswersNeeded) * 100}%`,
+            width: `${(currentLesson / (totalLessons + 1)) * 100}%`,
           }}
         >
-          <div className="h-[5px] w-full rounded-full bg-green-400"></div>
+          
         </div>
       </div>
       {hearts !== null &&

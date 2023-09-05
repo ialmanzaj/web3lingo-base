@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useBoundStore } from "../hooks/useBoundStore";
 import { useRouter } from "next/router";
-import { formatTime } from "../pages/lesson";
+import { formatTime } from "../utils/dateString";
 import { ReviewLesson } from "~/components/ReviewLesson";
 import { QuestionResult } from "~/components/QuestionResult";
 

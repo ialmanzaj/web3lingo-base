@@ -7,12 +7,13 @@ import "@radix-ui/themes/styles.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <html suppressHydrationWarning>
+    <>
       <Head>
         <title>Aprendiendo DeFi | Web3</title>
         <meta name="description" content="Aprende DeFi facil y divertido" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Theme
         appearance="dark"
         accentColor="cyan"
@@ -23,7 +24,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       >
         <Component {...pageProps} />
       </Theme>
-    </html>
+    </>
   );
 };
 

@@ -2,112 +2,184 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .notion-header {
-    width: 100%;
-    margin-bottom: 16px;
-    font-family: var(--primary-font);
+  width: 100%;
+  margin-bottom: 16px;
+  font-family: var(--primary-font);
 }
 
 .notion-header__cover {
-    overflow: hidden;
-    position: relative;
-    height: var(--header-cover-height);
-    max-height: calc(100vh - var(--navbar-height));
-    display: var(--header-display);
+  overflow: hidden;
+  position: relative;
+  height: var(--header-cover-height);
+  max-height: calc(100vh - var(--navbar-height));
+  display: var(--header-display);
 }
 
 .footer-cover,
 .footer-cover:before,
 .notion-header__cover.has-cover,
 .notion-header__cover:after {
-    width: 100% !important;
-    position: absolute !important;
+  width: 100% !important;
+  position: absolute !important;
 }
 
 .notion-header__cover.has-cover {
-    top: 0 !important;
-    margin-top: -20px !important;
-    height: 50vh !important;
-    max-height: 50vh !important;
-    z-index: -2 !important;
-    opacity: var(--bg-opacity) !important;
+  top: 0 !important;
+  margin-top: -20px !important;
+  height: 50vh !important;
+  max-height: 50vh !important;
+  z-index: -2 !important;
+  opacity: var(--bg-opacity) !important;
 }
 
 .header__cover:after {
-    content: "" !important;
-    z-index: 1 !important;
-    bottom: -2px !important;
-    left: 0 !important;
-    background-image: var(--theme-gradient) !important;
-    height: 100% !important;
+  content: "" !important;
+  z-index: 1 !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  background-image: var(--theme-gradient) !important;
+  height: 100% !important;
 }
 
 .notion-header__cover-image {
-    object-fit: cover;
-    width: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .super-content-wrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .super-content {
-    padding-bottom: 10vh !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    max-width: var(--max-width) !important;
-    margin: auto;
+  padding-bottom: 10vh !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: var(--max-width) !important;
+  margin: auto;
 }
 
 .footer-cover {
-    background-color: var(--color-bg-default) !important;
-    background: var(--footerCover) !important;
-    background-size: cover !important;
-    z-index: -1 !important;
-    min-width: 100% !important;
-    min-height: 25% !important;
-    height: auto !important;
-    opacity: 1 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    opacity: var(--bg-opacity) !important;
-    transform: rotate(180deg) !important;
-    border: 0 !important;
+  background-color: var(--color-bg-default) !important;
+  background: var(--footerCover) !important;
+  background-size: cover !important;
+  z-index: -1 !important;
+  min-width: 100% !important;
+  min-height: 25% !important;
+  height: auto !important;
+  opacity: 1 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  opacity: var(--bg-opacity) !important;
+  transform: rotate(180deg) !important;
+  border: 0 !important;
 }
 
 .footer-cover:before,
 .notion-header__cover:after {
-    content: "" !important;
-    z-index: 1 !important;
-    bottom: -2px !important;
-    left: 0 !important;
-    background-image: var(--theme-gradient) !important;
-    height: 100% !important;
+  content: "" !important;
+  z-index: 1 !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  background-image: var(--theme-gradient) !important;
+  height: 100% !important;
 }
 
 .waitlist input {
-    width: 45vh;
-    background: rgba(89, 89, 89, 0.6);
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 10px;
-    height: auto;
-    box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 0px inset, rgba(238, 238, 238, 0.15) 0px 0px 0px 1px inset;
+  width: 45vh;
+  background: rgba(89, 89, 89, 0.6);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  height: auto;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 0px inset,
+    rgba(238, 238, 238, 0.15) 0px 0px 0px 1px inset;
 }
 
 input .invalid {
-    animation: shake 0.3s;
+  animation: shake 0.3s;
+}
+@keyframes shake {
+  25% {
+    transform: translate(4px);
   }
-  @keyframes shake {
-    25% {
-      transform: translate(4px);
-    }
-    50% {
-      transform: translate(-4px);
-    }
-    75% {
-      transform: translate(4px);
-    }
+  50% {
+    transform: translate(-4px);
   }
+  75% {
+    transform: translate(4px);
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
