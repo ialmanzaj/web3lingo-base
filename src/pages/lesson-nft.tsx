@@ -1,12 +1,8 @@
 import type { NextPage } from "next";
 import React, { useRef, useState } from "react";
-import {
-  AppleSvg,
-  BoySvg,
-  WomanSvg,
-} from "../components/Svgs";
+import { AppleSvg, BoySvg, WomanSvg } from "../components/Svgs";
 import { useRouter } from "next/router";
-import { ProblemSelect1Of3 } from "../components/ProblemSelect1Of3";
+import { ProblemSelect1Of3 } from "../components/ProblemQuiz";
 import { ProblemWriteInEnglish } from "../components/ProblemWriteInEnglish";
 import { LessonComplete } from "../components/LessonComplete";
 import { QuestionResult } from "../components/QuestionResult";
@@ -32,7 +28,7 @@ export const lessonProblem2 = {
   correctAnswer: [4, 5],
 } as const;
 
-const lessonProblems = [lessonProblem1, lessonProblem2];
+const lessonProblems = [lessonProblem1];
 
 const numbersEqual = (a: readonly number[], b: readonly number[]): boolean => {
   return a.length === b.length && a.every((_, i) => a[i] === b[i]);
@@ -96,16 +92,8 @@ const Lesson: NextPage = () => {
       ...questionResults,
       {
         question: problem.question,
-        yourResponse:
-          problem.type === "SELECT_1_OF_3"
-            ? problem.answers[selectedAnswer ?? 0]?.name ?? ""
-            : selectedAnswers.map((i) => problem.answerTiles[i]).join(" "),
-        correctResponse:
-          problem.type === "SELECT_1_OF_3"
-            ? problem.answers[problem.correctAnswer].name
-            : problem.correctAnswer
-                .map((i) => problem.answerTiles[i])
-                .join(" "),
+        yourResponse: problem.answers[selectedAnswer ?? 0]?.name ?? "",
+        correctResponse: problem.answers[problem.correctAnswer].name,
       },
     ]);
   };
@@ -179,56 +167,22 @@ const Lesson: NextPage = () => {
     case "SELECT_1_OF_3": {
       return (
         <>
-         <iframe
-        src="https://app.7taps.com/jqJApIZj5Wf7"
-        title="ERC20 course"
-        width="760px"
-        height="680px"
-        style={{ borderRadius: 20, border: 0, display: "block", margin: "0 auto" }}
-      />
+          <iframe
+            src="https://app.7taps.com/jqJApIZj5Wf7"
+            title="ERC20 course"
+            width="760px"
+            height="680px"
+            style={{
+              borderRadius: 20,
+              border: 0,
+              display: "block",
+              margin: "0 auto",
+            }}
+          />
         </>
-       
-      
-        /*{<ProblemSelect1Of3
-          problem={problem}
-          correctAnswerCount={correctAnswerCount}
-          totalCorrectAnswersNeeded={totalCorrectAnswersNeeded}
-          selectedAnswer={selectedAnswer}
-          setSelectedAnswer={setSelectedAnswer}
-          quitMessageShown={quitMessageShown}
-          correctAnswerShown={correctAnswerShown}
-          setQuitMessageShown={setQuitMessageShown}
-          isAnswerCorrect={isAnswerCorrect}
-          onCheckAnswer={onCheckAnswer}
-          onFinish={onFinish}
-          onSkip={onSkip}
-          hearts={hearts}
-        /> }*/
-      );
-    }
-
-    case "WRITE_IN_ENGLISH": {
-      return (
-        <ProblemWriteInEnglish
-          problem={problem}
-          correctAnswerCount={correctAnswerCount}
-          totalCorrectAnswersNeeded={totalCorrectAnswersNeeded}
-          selectedAnswers={selectedAnswers}
-          setSelectedAnswers={setSelectedAnswers}
-          quitMessageShown={quitMessageShown}
-          correctAnswerShown={correctAnswerShown}
-          setQuitMessageShown={setQuitMessageShown}
-          isAnswerCorrect={isAnswerCorrect}
-          onCheckAnswer={onCheckAnswer}
-          onFinish={onFinish}
-          onSkip={onSkip}
-          hearts={hearts}
-        />
       );
     }
   }
 };
 
 export default Lesson;
-
-

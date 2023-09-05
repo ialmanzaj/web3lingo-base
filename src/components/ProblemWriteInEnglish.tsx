@@ -1,13 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import womanPng from "../../public/woman.png";
-import { lessonProblem2 } from "../pages/lesson";
 import { CheckAnswer } from "~/components/CheckAnswer";
 import { QuitMessage } from "~/components/QuitMessage";
 import { ProgressBar } from "~/components/ProgressBar";
 
 export const ProblemWriteInEnglish = ({
-  problem,
   currentLesson,
   totalLessons,
   selectedAnswers,
@@ -21,7 +18,6 @@ export const ProblemWriteInEnglish = ({
   onSkip,
   hearts,
 }: {
-  problem: typeof lessonProblem2;
   currentLesson: number;
   totalLessons: number;
   selectedAnswers: number[];
@@ -35,7 +31,6 @@ export const ProblemWriteInEnglish = ({
   onSkip: () => void;
   hearts: number | null;
 }) => {
-  const { question, correctAnswer, answerTiles } = problem;
 
   return (
     <div className="relative flex min-h-screen flex-col gap-5 bg-[#292929] px-4 py-5 sm:px-0 sm:py-0">
@@ -65,7 +60,7 @@ export const ProblemWriteInEnglish = ({
                 >
                   <div className="w-full  h-fit	">
                   <Image
-                  style={{ width: '100%', height: 'auto' }} // optional
+                  style={{ width: "100%", height: "auto" }} // optional
                     src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
                     width={0}
                     height={0}
@@ -111,7 +106,7 @@ export const ProblemWriteInEnglish = ({
                     <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                       Open & borderless financial system that connects the world
                       through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service 'apps' that run
+                      banks or institutions. Financial service &apos;apps&apos; that run
                       themselves and are governed by its users via voting.
                       (example: Compound)
                     </p>
@@ -123,7 +118,7 @@ export const ProblemWriteInEnglish = ({
                     <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                       Open & borderless financial system that connects the world
                       through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service 'apps' that run
+                      banks or institutions. Financial service &apos;apps&apos; that run
                       themselves and are governed by its users via voting.
                       (example: Compound)
                     </p>
@@ -135,7 +130,7 @@ export const ProblemWriteInEnglish = ({
                     <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                       Open & borderless financial system that connects the world
                       through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service 'apps' that run
+                      banks or institutions. Financial service &apos;apps&apos; that run
                       themselves and are governed by its users via voting.
                       (example: Compound)
                     </p>
@@ -147,7 +142,7 @@ export const ProblemWriteInEnglish = ({
                     <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                       Open & borderless financial system that connects the world
                       through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service 'apps' that run
+                      banks or institutions. Financial service &apos;apps&apos; that run
                       themselves and are governed by its users via voting.
                       (example: Compound)
                     </p>
@@ -162,7 +157,7 @@ export const ProblemWriteInEnglish = ({
       <div className="my-12"></div>
 
       <CheckAnswer
-        correctAnswer={correctAnswer.map((i) => answerTiles[i]).join(" ")}
+      
         correctAnswerShown={correctAnswerShown}
         isAnswerCorrect={isAnswerCorrect}
         isAnswerSelected={true}

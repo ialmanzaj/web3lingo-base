@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 import React, { useRef, useState } from "react";
-import { AppleSvg, BoySvg, WomanSvg } from "../components/Svgs";
 import { useRouter } from "next/router";
-import { ProblemSelect1Of3 } from "../components/ProblemSelect1Of3";
+import { ProblemSelect1Of3 } from "../components/ProblemQuiz";
 import { ProblemWriteInEnglish } from "../components/ProblemWriteInEnglish";
 import { LessonComplete } from "../components/LessonComplete";
 import { QuestionResult } from "../components/QuestionResult";
@@ -12,8 +11,8 @@ import { LessonFastForwardEndPass } from "../components/LessonFastForwardEndPass
 import { numbersEqual } from "../utils/array-utils";
 import Image from "next/image";
 
-export const lessonProblem1 = {
-  type: "SELECT_1_OF_3",
+export const lesson1 = {
+  type: "QUIZ",
   question: `Que es un blockchain?`,
   answers: [
     {
@@ -53,19 +52,17 @@ export const lessonProblem1 = {
   correctAnswer: 0,
 } as const;
 
-export const lessonProblem2 = {
-  type: "WRITE_IN_ENGLISH",
-  question: "",
-  answerTiles: [],
-  correctAnswer: [],
+export const lesson2 = {
+  type: "EXPLANING",
+  question: "Hello world",
 } as const;
 
-const lessonProblems = [lessonProblem1, lessonProblem2];
+const lessonProblems = [lesson1, lesson2];
 
 const Lesson: NextPage = () => {
   const router = useRouter();
 
-  const [lessonProblem, setLessonProblem] = useState(0);
+  const [lesson, setLesson] = useState(0);
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
   const [incorrectAnswerCount, setIncorrectAnswerCount] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<null | number>(null);
@@ -80,7 +77,11 @@ const Lesson: NextPage = () => {
   const [questionResults, setQuestionResults] = useState<QuestionResult[]>([]);
   const [reviewLessonShown, setReviewLessonShown] = useState(false);
 
-  const problem = lessonProblems[lessonProblem] ?? lessonProblem1;
+  const problem = lessonProblems[lesson] ?? lesson1;
+  const { correctAnswer } = lesson1;
+  const isAnswerCorrect = Array.isArray(correctAnswer)
+    ? numbersEqual(selectedAnswers, correctAnswer)
+    : selectedAnswer === correctAnswer;
 
   const totalLessons = 2;
 
@@ -91,30 +92,6 @@ const Lesson: NextPage = () => {
       ? 3 - incorrectAnswerCount
       : null;
 
-  const { correctAnswer } = problem;
-  const isAnswerCorrect = Array.isArray(correctAnswer)
-    ? numbersEqual(selectedAnswers, correctAnswer)
-    : selectedAnswer === correctAnswer;
-
-  const onNext = () => {
-     
-      setQuestionResults((questionResults) => [
-        ...questionResults,
-        {
-          question: problem.question,
-          yourResponse:
-            problem.type === "SELECT_1_OF_3"
-              ? problem.answers[selectedAnswer ?? 0]?.name ?? ""
-              : selectedAnswers.map((i) => problem.answerTiles[i]).join(" "),
-          correctResponse:
-            problem.type === "SELECT_1_OF_3"
-              ? problem.answers[problem.correctAnswer].name
-              : problem.correctAnswer
-                  .map((i) => problem.answerTiles[i])
-                  .join(" "),
-        },
-      ]);
-    };
 
   const onCheckAnswer = () => {
     setCorrectAnswerShown(true);
@@ -128,15 +105,13 @@ const Lesson: NextPage = () => {
       {
         question: problem.question,
         yourResponse:
-          problem.type === "SELECT_1_OF_3"
+          problem.type === "QUIZ"
             ? problem.answers[selectedAnswer ?? 0]?.name ?? ""
-            : selectedAnswers.map((i) => problem.answerTiles[i]).join(" "),
+            : "",
         correctResponse:
-          problem.type === "SELECT_1_OF_3"
+          problem.type === "QUIZ"
             ? problem.answers[problem.correctAnswer].name
-            : problem.correctAnswer
-                .map((i) => problem.answerTiles[i])
-                .join(" "),
+            : "",
       },
     ]);
   };
@@ -145,7 +120,7 @@ const Lesson: NextPage = () => {
     setSelectedAnswer(null);
     setSelectedAnswers([]);
     setCorrectAnswerShown(false);
-    setLessonProblem((x) => (x + 1) % lessonProblems.length);
+    setLesson((x) => (x + 1) % lessonProblems.length);
     endTime.current = Date.now();
   };
 
@@ -207,7 +182,7 @@ const Lesson: NextPage = () => {
   }
 
   switch (problem.type) {
-    case "SELECT_1_OF_3": {
+    case "QUIZ": {
       return (
         <ProblemSelect1Of3
           problem={problem}
@@ -227,11 +202,10 @@ const Lesson: NextPage = () => {
       );
     }
 
-    case "WRITE_IN_ENGLISH": {
+    case "EXPLANING": {
       return (
         <ProblemWriteInEnglish
-          problem={problem}
-          currentLesson={2}
+          currentLesson={1}
           totalLessons={totalLessons}
           selectedAnswers={selectedAnswers}
           setSelectedAnswers={setSelectedAnswers}

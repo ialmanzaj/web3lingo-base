@@ -1,5 +1,5 @@
 import React from "react";
-import { lessonProblem1 } from "../pages/lesson";
+import { lesson1 } from "../pages/lesson";
 import { CheckAnswer } from "~/components/CheckAnswer";
 import { QuitMessage } from "~/components/QuitMessage";
 import { ProgressBar } from "~/components/ProgressBar";
@@ -19,7 +19,7 @@ export const ProblemSelect1Of3 = ({
   onSkip,
   hearts,
 }: {
-  problem: typeof lessonProblem1;
+  problem: typeof lesson1;
   currentLesson: number;
   totalLessons: number;
   selectedAnswer: number | null;
