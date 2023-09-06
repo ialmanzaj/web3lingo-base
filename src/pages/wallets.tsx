@@ -106,4 +106,3 @@ const Wallets: NextPage = () => {
 };
 
 export default Wallets;
-

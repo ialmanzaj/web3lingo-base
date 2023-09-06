@@ -103,9 +103,9 @@ export const lesson2 = {
         <div className="py-3">
           <h4 className="mb-2 font-semibold">📱 Decentralized Apps (Dapps)</h4>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-            Any type of app such as games, lending & borrowing platforms, NFT
+            Any type of app such as games, lending &amp; borrowing platforms, NFT
             marketplaces etc.. An app can only be decentralized (not owned by
-            anyone), if it is built on a decentralized 'app store' (i.e :
+            anyone), if it is built on a decentralized &apos;app store&apos; (i.e :
             Ethereum) Examples of Dapps: Compound, Rarible, AAVE.
           </p>
         </div>
@@ -146,7 +146,7 @@ export const lesson3 = {
         <div className="py-3">
           <p className="leading-relaxed text-gray-600 dark:text-gray-400">
             Your wallet acts as your log-in for crypto apps. Just like when a
-            website asks you "Would you like to log-in with Facebook / Google?"
+            website asks you &quot;Would you like to log-in with Facebook / Google?&quot;
           </p>
         </div>
 
@@ -212,9 +212,9 @@ const Lesson: NextPage = () => {
 
   const [questionResults, setQuestionResults] = useState<QuestionResult[]>([]);
   const [reviewLessonShown, setReviewLessonShown] = useState(false);
-  
+
   const problem = lessons[currentLesson] ?? lesson1;
-  console.log(problem, currentLesson)
+  console.log(problem, currentLesson);
   const { correctAnswer } = lesson1;
   const isAnswerCorrect = Array.isArray(correctAnswer)
     ? numbersEqual(selectedAnswers, correctAnswer)
