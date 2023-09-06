@@ -50,7 +50,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com",],
   },
 };
 export default config;

@@ -11,6 +11,7 @@ import { LessonFastForwardEndPass } from "../components/LessonFastForwardEndPass
 import { numbersEqual } from "../utils/array-utils";
 import Image from "next/image";
 
+
 export const lesson1 = {
   type: "QUIZ",
   question: `Que es un blockchain?`,
@@ -59,7 +60,7 @@ export const lesson2 = {
     image: (
       <Image
         style={{ width: "100%", height: "auto" }} // optional
-        src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
+        src="/blockchain.jpg"
         width={0}
         height={0}
         sizes="100vw"
@@ -121,7 +122,7 @@ export const lesson3 = {
     image: (
       <Image
         style={{ width: "100%", height: "auto" }} // optional
-        src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
+        src="/wallet.jpg"
         width={0}
         height={0}
         sizes="100vw"
