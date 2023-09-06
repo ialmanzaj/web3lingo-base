@@ -4,7 +4,13 @@ import { CheckAnswer } from "~/components/CheckAnswer";
 import { QuitMessage } from "~/components/QuitMessage";
 import { ProgressBar } from "~/components/ProgressBar";
 
+type ContentProps = {
+  image: React.ReactNode;
+  text: React.ReactNode;
+};
+
 export const ProblemWriteInEnglish = ({
+  content,
   currentLesson,
   totalLessons,
   selectedAnswers,
@@ -18,6 +24,7 @@ export const ProblemWriteInEnglish = ({
   onSkip,
   hearts,
 }: {
+  content: ContentProps;
   currentLesson: number;
   totalLessons: number;
   selectedAnswers: number[];
@@ -31,11 +38,11 @@ export const ProblemWriteInEnglish = ({
   onSkip: () => void;
   hearts: number | null;
 }) => {
-
+  const { text, image } = content;
   return (
     <div className="relative flex min-h-screen flex-col gap-5 bg-[#292929] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5">
-        <div className="fixed left-0 right-0 top-0 bg-[#292929] z-10">
+        <div className="fixed left-0 right-0 top-0 z-10 bg-[#292929]">
           <div className="w-full max-w-5xl sm:my-8 sm:px-5">
             <ProgressBar
               currentLesson={currentLesson}
@@ -51,102 +58,18 @@ export const ProblemWriteInEnglish = ({
             <>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
                 <div
-                  
                   style={{
                     width: "100%",
                     height: "auto",
                     position: "relative",
                   }}
                 >
-                  <div className="w-full  h-fit	">
-                  <Image
-                  style={{ width: "100%", height: "auto" }} // optional
-                    src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    alt="Picture of the author"
-                  />
+                  <div className="h-fit  w-full	">
+                    {image}
                   </div>
                 </div>
                 <div>
-                <h2 className="pb-4 text-4xl font-bold">
-                      Que es un blockchain
-                    </h2>
-                  <div className="py-3">
-                    <h4 className="mb-2 font-semibold">⚖️ Decentralization</h4>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                      <ul>
-                        <li>
-                          Spreading out responsibility to many different parties
-                          instead of one.
-                        </li>
-                        <li>
-                          Removing single point of power, failure, authority.
-                        </li>
-                        <li>Letting people govern the systems they use.</li>
-                      </ul>
-                    </p>
-                  </div>
-
-                  <div className="py-3">
-                    <h4 className="mb-2 font-semibold">⛓️ Blockchain</h4>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                      Public, digital database of crypto currency transactions.
-                      Constantly updated and backed up across millions of
-                      machines. Transactions are permanent, irreversible, and
-                      viewable by anyone.
-                    </p>
-                  </div>
-
-                  <div className="py-3">
-                    <h4 className="mb-2 font-semibold">
-                      🏦 Decentralized Finance
-                    </h4>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                      Open & borderless financial system that connects the world
-                      through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service &apos;apps&apos; that run
-                      themselves and are governed by its users via voting.
-                      (example: Compound)
-                    </p>
-                  </div>
-                  <div className="py-3">
-                    <h4 className="mb-2 font-semibold">
-                      🏦 Decentralized Finance
-                    </h4>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                      Open & borderless financial system that connects the world
-                      through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service &apos;apps&apos; that run
-                      themselves and are governed by its users via voting.
-                      (example: Compound)
-                    </p>
-                  </div>
-                  <div className="py-3">
-                    <h4 className="mb-2 font-semibold">
-                      🏦 Decentralized Finance
-                    </h4>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                      Open & borderless financial system that connects the world
-                      through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service &apos;apps&apos; that run
-                      themselves and are governed by its users via voting.
-                      (example: Compound)
-                    </p>
-                  </div>
-                  <div className="py-3">
-                    <h4 className="mb-2 font-semibold">
-                      🏦 Decentralized Finance
-                    </h4>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-                      Open & borderless financial system that connects the world
-                      through the internet. Peer to Peer instead of relying on
-                      banks or institutions. Financial service &apos;apps&apos; that run
-                      themselves and are governed by its users via voting.
-                      (example: Compound)
-                    </p>
-                  </div>
+                  {text}
                 </div>
               </div>
             </>
@@ -157,9 +80,8 @@ export const ProblemWriteInEnglish = ({
       <div className="my-12"></div>
 
       <CheckAnswer
-      
         correctAnswerShown={correctAnswerShown}
-        isAnswerCorrect={isAnswerCorrect}
+        isAnswerCorrect={true}
         isAnswerSelected={true}
         onCheckAnswer={onCheckAnswer}
         onFinish={onFinish}

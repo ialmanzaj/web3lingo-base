@@ -55,14 +55,150 @@ export const lesson1 = {
 export const lesson2 = {
   type: "EXPLANING",
   question: "Hello world",
+  content: {
+    image: (
+      <Image
+        style={{ width: "100%", height: "auto" }} // optional
+        src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
+        width={0}
+        height={0}
+        sizes="100vw"
+        alt="Picture of the author"
+      />
+    ),
+    text: (
+      <>
+        <h2 className="pb-4 text-4xl font-bold">Que es un blockchain</h2>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">⛓️ Blockchain</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Public, digital database of crypto currency transactions. Constantly
+            updated and backed up across millions of machines. Transactions are
+            permanent, irreversible, and viewable by anyone.
+          </p>
+        </div>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">⚖️ Decentralization</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            <ul className="list-disc">
+              <li>
+                Spreading out responsibility to many different parties instead
+                of one.
+              </li>
+              <li>Removing single point of power, failure, authority.</li>
+              <li>Letting people govern the systems they use.</li>
+            </ul>
+          </p>
+        </div>
+
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">🏦 Decentralized Finance</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Open & borderless financial system that connects the world through
+            the internet. Peer to Peer instead of relying on banks or
+            institutions. Financial service &apos;apps&apos; that run themselves
+            and are governed by its users via voting. (example: Compound)
+          </p>
+        </div>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">📱 Decentralized Apps (Dapps)</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Any type of app such as games, lending & borrowing platforms, NFT
+            marketplaces etc.. An app can only be decentralized (not owned by
+            anyone), if it is built on a decentralized 'app store' (i.e :
+            Ethereum) Examples of Dapps: Compound, Rarible, AAVE.
+          </p>
+        </div>
+      </>
+    ),
+  },
 } as const;
 
-const lessonProblems = [lesson1, lesson2];
+export const lesson3 = {
+  type: "EXPLANING",
+  question: "Hello world",
+  content: {
+    image: (
+      <Image
+        style={{ width: "100%", height: "auto" }} // optional
+        src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
+        width={0}
+        height={0}
+        sizes="100vw"
+        alt="Picture of the author"
+      />
+    ),
+    text: (
+      <>
+        <h2 className="pb-4 text-4xl font-bold">Crypto Wallets</h2>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">
+            ⛓️ Your New Personal Bank Account
+          </h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            A crypto wallet is like a bank account on steroids. Think about it,
+            any financial service you use, (PayPal, Credit Card, Stripe...)
+            needs to be linked to a bank account. Not just for funding, but for
+            verification. In crypto, your wallet is what connects you to the
+            DeFi applications that are out.
+          </p>
+        </div>
+        <div className="py-3">
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Your wallet acts as your log-in for crypto apps. Just like when a
+            website asks you "Would you like to log-in with Facebook / Google?"
+          </p>
+        </div>
+
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">🏦 Concepts</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            <ul className="list-disc">
+              <li>
+                {" "}
+                Cold Storage = a hardware wallet, not connected to internet
+                (Ledger)
+              </li>
+              <li>Hot Storage = online facing wallet, such as MetaMask. </li>
+              <li>
+                Hardware wallet = physical crypto wallet device, like a ledger
+                nano x.
+              </li>
+              <li>
+                EVM = Ethereum Virtual Machine is what most networks are built
+                on. Browser
+              </li>
+              <li>
+                Wallet = A wallet in the form of a browser extension. (i.e
+                MetaMask)
+              </li>
+              <li>KYC = Real world verification required to use. </li>
+              <li>
+                Custodial = Thewallet providers holds your secret key. (if they
+                get hacked, so do you){" "}
+              </li>
+              <li>
+                Non-Custodial = Your wallet is as safe as you not losing your
+                password / seedphrase.{" "}
+              </li>
+              <li>
+                Self-Custody = Keeping your crypto inside a wallet that only YOU
+                have the key to.
+              </li>
+            </ul>
+          </p>
+        </div>
+      </>
+    ),
+  },
+} as const;
+
+const lessons = [lesson1, lesson2, lesson3];
 
 const Lesson: NextPage = () => {
   const router = useRouter();
 
-  const [lesson, setLesson] = useState(0);
+  const [currentLesson, setLesson] = useState(0);
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
   const [incorrectAnswerCount, setIncorrectAnswerCount] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<null | number>(null);
@@ -76,14 +212,15 @@ const Lesson: NextPage = () => {
 
   const [questionResults, setQuestionResults] = useState<QuestionResult[]>([]);
   const [reviewLessonShown, setReviewLessonShown] = useState(false);
-
-  const problem = lessonProblems[lesson] ?? lesson1;
+  
+  const problem = lessons[currentLesson] ?? lesson1;
+  console.log(problem, currentLesson)
   const { correctAnswer } = lesson1;
   const isAnswerCorrect = Array.isArray(correctAnswer)
     ? numbersEqual(selectedAnswers, correctAnswer)
     : selectedAnswer === correctAnswer;
 
-  const totalLessons = 2;
+  const totalLessons = lessons.length;
 
   const [isStartingLesson, setIsStartingLesson] = useState(true);
   const hearts =
@@ -92,6 +229,10 @@ const Lesson: NextPage = () => {
       ? 3 - incorrectAnswerCount
       : null;
 
+  const onNext = () => {
+    setCorrectAnswerShown(true);
+    setCorrectAnswerCount((x) => x + 1);
+  };
 
   const onCheckAnswer = () => {
     setCorrectAnswerShown(true);
@@ -120,7 +261,7 @@ const Lesson: NextPage = () => {
     setSelectedAnswer(null);
     setSelectedAnswers([]);
     setCorrectAnswerShown(false);
-    setLesson((x) => (x + 1) % lessonProblems.length);
+    setLesson((x) => (x + 1) % lessons.length);
     endTime.current = Date.now();
   };
 
@@ -205,7 +346,8 @@ const Lesson: NextPage = () => {
     case "EXPLANING": {
       return (
         <ProblemWriteInEnglish
-          currentLesson={1}
+          content={problem.content}
+          currentLesson={currentLesson}
           totalLessons={totalLessons}
           selectedAnswers={selectedAnswers}
           setSelectedAnswers={setSelectedAnswers}
@@ -213,7 +355,7 @@ const Lesson: NextPage = () => {
           correctAnswerShown={correctAnswerShown}
           setQuitMessageShown={setQuitMessageShown}
           isAnswerCorrect={isAnswerCorrect}
-          onCheckAnswer={onSkip}
+          onCheckAnswer={onNext}
           onFinish={onFinish}
           onSkip={onSkip}
           hearts={hearts}

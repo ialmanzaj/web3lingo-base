@@ -41,7 +41,7 @@ export const ProgressBar = ({
             (currentLesson > 0 ? "px-2 pt-1 " : "")
           }
           style={{
-            width: `${(currentLesson / (totalLessons + 1)) * 100}%`,
+            width: `${(currentLesson / (totalLessons )) * 100}%`,
           }}
         >
           
