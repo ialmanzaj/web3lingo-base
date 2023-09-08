@@ -17,7 +17,7 @@ const config = {
           },
         ],
         permanent: false,
-        destination: "/dashboard",
+        destination: "/learn",
       },
       {
         source: "/",
