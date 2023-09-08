@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import { useBoundStore } from "../hooks/useBoundStore";
 import { TreasureClosedSvg } from "./Svgs";
-//import { Box, Card, Button, Heading, Flex, Badge } from "@radix-ui/themes";
 import {
   Card,
   CardContent,
@@ -11,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Flex } from "@radix-ui/themes";
+
 
 export const XpProgressSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());

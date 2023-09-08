@@ -40,19 +40,15 @@ export const ProblemWriteInEnglish = ({
 }) => {
   const { text, image } = content;
   return (
-    <div className="relative flex min-h-screen flex-col gap-5 bg-[#292929] px-4 py-5 sm:px-0 sm:py-0">
+    <div className="relative flex min-h-screen flex-col gap-5 bg-[#FBF9F4] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5">
-        <div className="fixed left-0 right-0 top-0 z-10 bg-[#292929]">
-          <div className="w-full max-w-5xl sm:my-8 sm:px-5">
-            <ProgressBar
-              currentLesson={currentLesson}
-              totalLessons={totalLessons}
-              setQuitMessageShown={setQuitMessageShown}
-              hearts={hearts}
-            />
-          </div>
-        </div>
-        <div className="my-10"></div>
+        <ProgressBar
+          currentLesson={currentLesson}
+          totalLessons={totalLessons}
+          setQuitMessageShown={setQuitMessageShown}
+          hearts={hearts}
+        />
+
         <section className="sm:gap-18 flex max-w-5xl grow flex-col gap-5 self-center overflow-y-scroll sm:items-center sm:justify-center">
           <div className="w-full">
             <>

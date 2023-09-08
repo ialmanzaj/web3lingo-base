@@ -68,7 +68,7 @@ export const LessonComplete = ({
           </button>
           <Link
             className={"flex w-full items-center justify-center rounded-2xl border-b-4 border-green-600 bg-green-500 p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"}
-            href="/dashboard"
+            href="/learn"
             onClick={() => {
               increaseXp(correctAnswerCount);
               addToday();

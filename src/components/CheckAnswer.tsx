@@ -19,15 +19,10 @@ export const CheckAnswer = ({
   onSkip?: () => void;
 }) => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#292929]">
+    <div className="fixed bottom-0 left-0 right-0 bg-[#FBF9F4]">
       <section className="border-gray-200 sm:border-t-2 sm:p-8">
         <div className="mx-auto flex max-w-5xl sm:justify-between">
-          <button
-            className="hidden rounded-2xl border-2 border-b-4 border-gray-200 bg-white p-3 font-bold uppercase text-gray-400 transition hover:border-gray-300 hover:bg-gray-200 sm:block sm:min-w-[150px] sm:max-w-fit"
-            onClick={onSkip}
-          >
-            Skip
-          </button>
+          <div className="hidden rounded-2xl p-3 transition sm:block sm:min-w-[150px] sm:max-w-fit"></div>
           {!isAnswerSelected ? (
             <button
               className="grow rounded-2xl bg-gray-200 p-3 font-bold uppercase text-gray-400 sm:min-w-[150px] sm:max-w-fit sm:grow-0"
