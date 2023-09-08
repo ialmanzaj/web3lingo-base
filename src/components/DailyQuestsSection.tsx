@@ -7,22 +7,12 @@ export const DailyQuestsSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <Card
-      variant="surface"
-      size="2"
-      className="flex flex-col gap-5 p-6 font-bold	"
-    >
-      <Box py="2">
-        <Heading as="h2" size="4">
-          Retos diarios
-        </Heading>
-      </Box>
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 font-bold text-gray-700">
+      <h2 className="text-xl">Retos diarios</h2>
       <div className="flex items-center gap-4">
         <LightningProgressSvg />
         <div className="flex flex-col gap-2">
-          <Flex gap="2">
-            <Badge color="blue">Gana +{goalXp} XP</Badge>
-          </Flex>
+          <h3>Gana {goalXp} XP</h3>
           <div className="flex items-center">
             <div className="relative h-5 w-52 rounded-l-full bg-gray-200">
               <div
@@ -42,6 +32,6 @@ export const DailyQuestsSection = () => {
           </div>
         </div>
       </div>
-    </Card>
+    </article>
   );
 };

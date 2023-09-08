@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import { CheckAnswer } from "~/components/CheckAnswer";
-import { QuitMessage } from "~/components/QuitMessage";
-import { ProgressBar } from "~/components/ProgressBar";
+import { CheckAnswer } from "@/components/CheckAnswer";
+import { QuitMessage } from "@/components/QuitMessage";
+import { ProgressBar } from "@/components/ProgressBar";
 
 type ContentProps = {
   image: React.ReactNode;
@@ -64,13 +64,9 @@ export const ProblemWriteInEnglish = ({
                     position: "relative",
                   }}
                 >
-                  <div className="h-fit  w-full	">
-                    {image}
-                  </div>
+                  <div className="h-fit  w-full	">{image}</div>
                 </div>
-                <div>
-                  {text}
-                </div>
+                <div>{text}</div>
               </div>
             </>
           </div>

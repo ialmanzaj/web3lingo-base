@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-import { CurrentCourse } from "~/components/CurrentCourse";
+import { CurrentCourse } from "@/components/CurrentCourse";
 
 export function NavBar() {
   return (

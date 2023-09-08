@@ -2,27 +2,33 @@ import Link from "next/link";
 import React from "react";
 import { useBoundStore } from "../hooks/useBoundStore";
 import { TreasureClosedSvg } from "./Svgs";
-import { Box, Card, Button, Heading, Flex, Badge } from "@radix-ui/themes";
+//import { Box, Card, Button, Heading, Flex, Badge } from "@radix-ui/themes";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Flex } from "@radix-ui/themes";
 
 export const XpProgressSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <Card size="3" className="flex flex-col gap-5 p-6">
+    <Card className="flex flex-col gap-5 rounded-2xl p-6 font-bold">
       <div className="flex items-center justify-between">
-        <Box py="3">
-          <Heading as="h2" size="5">
-            Tu progreso semanal
-          </Heading>
-        </Box>
+        <h2 className="text-xl">Tu progreso</h2>
+        {/* <Link href="/settings/coach" className="uppercase text-blue-400">
+          Cambia el objetivo
+        </Link> */}
       </div>
-      <Flex gap="5">
+      <div className="flex gap-5">
         <TreasureClosedSvg />
-        <Flex className="grow flex-col" justify="center">
-          {/* <Heading as="h3" size="4" color="gray" weight="medium">
-            Objetivo diario
-          </Heading> */}
-          <Flex gap="5" className="items-center">
+        <div className="flex grow flex-col justify-around">
+          <h3 className="font-normal text-gray-500">Objetivo diario</h3>
+          <div className="flex items-center gap-5">
             <div className="relative h-4 w-full grow rounded-full bg-gray-200">
               {xpToday > 0 && (
                 <div
@@ -33,12 +39,12 @@ export const XpProgressSection = () => {
                 </div>
               )}
             </div>
-            <Badge color="crimson">
+            <Badge className="text-md shrink-0 font-normal ">
               {xpToday}/{goalXp} XP
             </Badge>
-          </Flex>
-        </Flex>
-      </Flex>
+          </div>
+        </div>
+      </div>
     </Card>
   );
 };

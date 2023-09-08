@@ -1,8 +1,8 @@
 import React from "react";
 import { lesson1 } from "../pages/lesson";
-import { CheckAnswer } from "~/components/CheckAnswer";
-import { QuitMessage } from "~/components/QuitMessage";
-import { ProgressBar } from "~/components/ProgressBar";
+import { CheckAnswer } from "@/components/CheckAnswer";
+import { QuitMessage } from "@/components/QuitMessage";
+import { ProgressBar } from "@/components/ProgressBar";
 
 export const ProblemSelect1Of3 = ({
   problem,

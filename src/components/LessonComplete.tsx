@@ -3,8 +3,8 @@ import React from "react";
 import { useBoundStore } from "../hooks/useBoundStore";
 import { useRouter } from "next/router";
 import { formatTime } from "../utils/dateString";
-import { ReviewLesson } from "~/components/ReviewLesson";
-import { QuestionResult } from "~/components/QuestionResult";
+import { ReviewLesson } from "@/components/ReviewLesson";
+import { QuestionResult } from "@/components/QuestionResult";
 
 export const LessonComplete = ({
   correctAnswerCount, incorrectAnswerCount, startTime, endTime, reviewLessonShown, setReviewLessonShown, questionResults,
