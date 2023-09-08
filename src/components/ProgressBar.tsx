@@ -13,19 +13,22 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+
 
 export const ProgressBar = ({
   currentLesson,
   totalLessons,
   setQuitMessageShown,
+  onExit,
   hearts,
 }: {
   currentLesson: number;
   totalLessons: number;
   setQuitMessageShown: (isShown: boolean) => void;
+  onExit: () => void;
   hearts: null | number;
 }) => {
+  
   const router = useRouter();
   return (
     <>
@@ -48,7 +51,7 @@ export const ProgressBar = ({
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogAction onClick={() => router.push("/learn")}>
+                  <AlertDialogAction onClick={onExit}>
                     Exit Lesson
                   </AlertDialogAction>
                   <AlertDialogCancel>Keep learning</AlertDialogCancel>

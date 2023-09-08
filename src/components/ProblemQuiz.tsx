@@ -16,6 +16,7 @@ export const ProblemSelect1Of3 = ({
   isAnswerCorrect,
   onCheckAnswer,
   onFinish,
+  onExit,
   onSkip,
   hearts,
 }: {
@@ -29,6 +30,7 @@ export const ProblemSelect1Of3 = ({
   setQuitMessageShown: React.Dispatch<React.SetStateAction<boolean>>;
   isAnswerCorrect: boolean;
   onCheckAnswer: () => void;
+  onExit: () => void;
   onFinish: () => void;
   onSkip: () => void;
   hearts: number | null;
@@ -39,6 +41,7 @@ export const ProblemSelect1Of3 = ({
     <div className="flex min-h-screen flex-col gap-5 bg-[#FBF9F4] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5">
         <ProgressBar
+          onExit={onExit}
           currentLesson={currentLesson}
           totalLessons={totalLessons}
           setQuitMessageShown={setQuitMessageShown}

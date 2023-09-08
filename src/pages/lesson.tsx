@@ -11,7 +11,6 @@ import { LessonFastForwardEndPass } from "../components/LessonFastForwardEndPass
 import { numbersEqual } from "../utils/array-utils";
 import Image from "next/image";
 
-
 export const lesson1 = {
   type: "QUIZ",
   question: `Que es un blockchain?`,
@@ -104,10 +103,10 @@ export const lesson2 = {
         <div className="py-3">
           <h4 className="mb-2 font-semibold">📱 Decentralized Apps (Dapps)</h4>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400">
-            Any type of app such as games, lending &amp; borrowing platforms, NFT
-            marketplaces etc.. An app can only be decentralized (not owned by
-            anyone), if it is built on a decentralized &apos;app store&apos; (i.e :
-            Ethereum) Examples of Dapps: Compound, Rarible, AAVE.
+            Any type of app such as games, lending &amp; borrowing platforms,
+            NFT marketplaces etc.. An app can only be decentralized (not owned
+            by anyone), if it is built on a decentralized &apos;app store&apos;
+            (i.e : Ethereum) Examples of Dapps: Compound, Rarible, AAVE.
           </p>
         </div>
       </>
@@ -147,7 +146,8 @@ export const lesson3 = {
         <div className="py-3">
           <p className="leading-relaxed text-gray-600 dark:text-gray-400">
             Your wallet acts as your log-in for crypto apps. Just like when a
-            website asks you &quot;Would you like to log-in with Facebook / Google?&quot;
+            website asks you &quot;Would you like to log-in with Facebook /
+            Google?&quot;
           </p>
         </div>
 
@@ -233,6 +233,11 @@ const Lesson: NextPage = () => {
   const onNext = () => {
     setCorrectAnswerShown(true);
     setCorrectAnswerCount((x) => x + 1);
+  };
+
+  const onExit = () => {
+    void router.push("/learn");
+    return;
   };
 
   const onCheckAnswer = () => {
@@ -338,6 +343,7 @@ const Lesson: NextPage = () => {
           isAnswerCorrect={isAnswerCorrect}
           onCheckAnswer={onCheckAnswer}
           onFinish={onFinish}
+          onExit={onExit}
           onSkip={onSkip}
           hearts={hearts}
         />
@@ -358,6 +364,7 @@ const Lesson: NextPage = () => {
           isAnswerCorrect={isAnswerCorrect}
           onCheckAnswer={onNext}
           onFinish={onFinish}
+          onExit={onExit}
           onSkip={onSkip}
           hearts={hearts}
         />

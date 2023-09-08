@@ -22,6 +22,7 @@ export const ProblemWriteInEnglish = ({
   onCheckAnswer,
   onFinish,
   onSkip,
+  onExit,
   hearts,
 }: {
   content: ContentProps;
@@ -35,6 +36,7 @@ export const ProblemWriteInEnglish = ({
   isAnswerCorrect: boolean;
   onCheckAnswer: () => void;
   onFinish: () => void;
+  onExit: () => void;
   onSkip: () => void;
   hearts: number | null;
 }) => {
@@ -43,6 +45,7 @@ export const ProblemWriteInEnglish = ({
     <div className="relative flex min-h-screen flex-col gap-5 bg-[#FBF9F4] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5">
         <ProgressBar
+          onExit={onExit}
           currentLesson={currentLesson}
           totalLessons={totalLessons}
           setQuitMessageShown={setQuitMessageShown}

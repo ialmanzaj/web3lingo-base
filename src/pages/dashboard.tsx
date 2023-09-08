@@ -31,15 +31,15 @@ const Home: NextPage = () => {
           <div className="flex-column gap-7">
             <Card className="w-5/6 p-3">
               <Link href="/lesson">
-                <div p="4">
+                <div>
                   <div>
-                    <div direction="column" justify="between">
+                    <div>
                       <CardHeader>Blockchain 101</CardHeader>
                       <CardDescription color="gray">
                         Aprende los conceptos básicos y fundamentales de
                         blockchain con este curso de introducción.
                       </CardDescription>
-                      <CardContent py="4">
+                      <CardContent>
                         <div className="inline">
                           Ir al curso{" "}
                           <svg
@@ -53,14 +53,14 @@ const Home: NextPage = () => {
                           </svg>
                         </div>
                       </CardContent>
-                      <div gap="2">
+                      <div>
                         <Badge color="orange">Beginner</Badge>
                         <Badge color="blue">6 hours</Badge>
                         <Badge color="green">Fundamentals</Badge>
                       </div>
                     </div>
 
-                    <div width="auto" height="auto">
+                    <div>
                       <img
                         alt=""
                         src="https://quest.philand.xyz/assets/cover_adventure_ens_owner.png"
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
             </Card>
           </div>
         </div>
-        <div px="5">
+        <div>
           <RightBar />
         </div>
       </div>
