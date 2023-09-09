@@ -47,10 +47,10 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const courses = [
+const courses_selection = [
   {
     label: "Courses",
-    teams: [
+    courses: [
       {
         label: "Solidity",
         value: "solidity",
@@ -63,17 +63,22 @@ const courses = [
   },
 ]
 
-type Team = (typeof courses)[number]["teams"][number]
+type Course = (typeof courses_selection)[number]["courses"][number]
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 
-interface TeamSwitcherProps extends PopoverTriggerProps {}
+interface CourseSwitcherProps extends PopoverTriggerProps {}
 
-export default function TeamSwitcher({ className }: TeamSwitcherProps) {
+const defaultCourse: Course = {
+    label: "",
+    value: "",
+  };
+
+export default function CourseSwitcher({ className }: CourseSwitcherProps) {
   const [open, setOpen] = React.useState(false)
   const [showNewTeamDialog, setShowNewTeamDialog] = React.useState(false)
-  const [selectedTeam, setSelectedTeam] = React.useState<Team>(
-    courses[0].teams[0]
+  const [selectedCourse, setSelectedCourse] = React.useState<Course>(
+    courses_selection[0]?.courses[0] || defaultCourse
   )
 
   return (
@@ -89,12 +94,12 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
           >
             <Avatar className="mr-2 h-5 w-5">
               <AvatarImage
-                src={`https://avatar.vercel.sh/${selectedTeam.value}.png`}
-                alt={selectedTeam.label}
+                src={`https://avatar.vercel.sh/${selectedCourse.value}.png`}
+                alt={selectedCourse.label}
               />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
-            {selectedTeam.label}
+            {selectedCourse.label}
             <CaretSortIcon className="ml-auto h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
@@ -103,30 +108,30 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
             <CommandList>
               <CommandInput placeholder="Search course..." />
               <CommandEmpty>No team found.</CommandEmpty>
-              {courses.map((group) => (
+              {courses_selection.map((group) => (
                 <CommandGroup key={group.label} heading={group.label}>
-                  {group.teams.map((team) => (
+                  {group.courses.map((course) => (
                     <CommandItem
-                      key={team.value}
+                      key={course.value}
                       onSelect={() => {
-                        setSelectedTeam(team)
+                        setSelectedCourse(course)
                         setOpen(false)
                       }}
                       className="text-sm"
                     >
                       <Avatar className="mr-2 h-5 w-5">
                         <AvatarImage
-                          src={`https://avatar.vercel.sh/${team.value}.png`}
-                          alt={team.label}
+                          src={`https://avatar.vercel.sh/${course.value}.png`}
+                          alt={course.label}
                           className="grayscale"
                         />
                         <AvatarFallback>SC</AvatarFallback>
                       </Avatar>
-                      {team.label}
+                      {course.label}
                       <CheckIcon
                         className={cn(
                           "ml-auto h-4 w-4",
-                          selectedTeam.value === team.value
+                          selectedCourse.value === course.value
                             ? "opacity-100"
                             : "opacity-0"
                         )}
@@ -143,10 +148,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
       </Popover>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Create team</DialogTitle>
-          <DialogDescription>
-            Add a new team to manage products and customers.
-          </DialogDescription>
+         
         </DialogHeader>
         <div>
           <div className="space-y-4 py-2 pb-4">

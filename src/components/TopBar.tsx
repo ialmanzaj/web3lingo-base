@@ -17,8 +17,8 @@ import { EmptyGemTopBarSvg } from "./Svgs";
 import { AddLanguageSvg } from "./Svgs";
 import { CurrentCourse } from "@/components/CurrentCourse";
 import { UserNav } from "./user-nav";
-import TeamSwitcher from "@/components/team-switcher";
-import { ModeToggle } from "./ui/toggle";
+import CourseSwitcher from "@/components/course-switcher";
+
 
 type MenuState = "HIDDEN" | "LANGUAGES" | "STREAK" | "GEMS" | "MORE";
 
@@ -199,8 +199,8 @@ export const TopBar = ({
               Home
             </a>
           </li> */}
-            <TeamSwitcher />
-            
+            <CourseSwitcher />
+
             <CurrentCourse />
             <UserNav />
           </ul>
