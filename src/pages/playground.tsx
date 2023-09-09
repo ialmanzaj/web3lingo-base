@@ -19,6 +19,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { UserNav } from "@/components/user-nav";
 
 
 const Playground: NextPage = () => {
@@ -35,7 +36,7 @@ const Playground: NextPage = () => {
             {/* <MainNav className="mx-6" /> */}
             <div className="ml-auto flex items-center space-x-4">
              {/*  <Search /> */}
-             {/*  <UserNav /> */}
+              <UserNav />
             </div>
           </div>
         </div>

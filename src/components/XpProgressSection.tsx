@@ -16,7 +16,7 @@ export const XpProgressSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <Card className="flex flex-col gap-5 rounded-2xl p-6 font-bold">
+    <Card className="flex flex-col gap-5 rounded-2xl p-4 font-bold">
       <div className="flex items-center justify-between">
         <h2 className="text-xl">Tu progreso</h2>
         {/* <Link href="/settings/coach" className="uppercase text-blue-400">

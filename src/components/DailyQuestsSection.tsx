@@ -7,7 +7,7 @@ export const DailyQuestsSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 font-bold text-gray-700">
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-4 font-bold text-gray-700">
       <h2 className="text-xl">Retos diarios</h2>
       <div className="flex items-center gap-4">
         <LightningProgressSvg />

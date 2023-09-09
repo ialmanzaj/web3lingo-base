@@ -16,6 +16,9 @@ import { EmptyFireTopBarSvg } from "./Svgs";
 import { EmptyGemTopBarSvg } from "./Svgs";
 import { AddLanguageSvg } from "./Svgs";
 import { CurrentCourse } from "@/components/CurrentCourse";
+import { UserNav } from "./user-nav";
+import TeamSwitcher from "@/components/team-switcher";
+import { ModeToggle } from "./ui/toggle";
 
 type MenuState = "HIDDEN" | "LANGUAGES" | "STREAK" | "GEMS" | "MORE";
 
@@ -32,7 +35,7 @@ export const TopBar = ({
   const lingots = useBoundStore((x) => x.lingots);
   const course = useBoundStore((x) => x.course);
   return (
-    <header className="fixed z-20 h-[58px] w-full sm:relative">
+    <header className="fixed z-20 w-full sm:relative">
       <div
         className={`relative flex h-full w-full items-center justify-between border-b-2 px-[10px] transition duration-500 sm:hidden`}
       >
@@ -177,7 +180,7 @@ export const TopBar = ({
         </div>
       </div>
 
-      <div className="mx-auto hidden max-w-screen-xl flex-wrap items-center justify-between p-4 sm:flex  ">
+      <div className="mx-auto hidden max-w-screen-xl flex-wrap items-center justify-between border-b p-4  sm:flex">
         <Link href="/" className="flex items-center">
           🚀
           <span className="self-center whitespace-nowrap text-2xl font-semibold ">
@@ -185,8 +188,8 @@ export const TopBar = ({
           </span>
         </Link>
 
-        <div className="hidden w-full sm:block sm:w-auto" id="navbar-default">
-          <ul className="mt-4 flex flex-col rounded-lg  p-4 font-medium  sm:mt-0 sm:flex-row sm:space-x-8 sm:border-0 sm:p-0 ">
+        <div className="hidden w-full sm:block sm:w-auto " id="navbar-default">
+          <ul className="mt-4 flex flex-col items-center rounded-lg p-4 font-medium  sm:mt-0 sm:flex-row sm:space-x-8 sm:border-0 sm:p-0 ">
             {/*  <li>
             <a
               href="#"
@@ -196,8 +199,10 @@ export const TopBar = ({
               Home
             </a>
           </li> */}
-
+            <TeamSwitcher />
+            
             <CurrentCourse />
+            <UserNav />
           </ul>
         </div>
       </div>
