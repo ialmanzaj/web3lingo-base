@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export const lesson1 = {
   type: "QUIZ",
-  question: `Que es un blockchain?`,
+  question: `What is a blockchain?`,
   answers: [
     {
       icon: (
@@ -24,7 +24,7 @@ export const lesson1 = {
           alt="Picture of the author"
         />
       ),
-      name: "Base de datos ",
+      name: "Database",
     },
     {
       icon: (
@@ -46,7 +46,7 @@ export const lesson1 = {
           src="https://images.unsplash.com/flagged/photo-1569144654912-5f146d08b98b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGNvbXB1dGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
         />
       ),
-      name: "Una computadora",
+      name: "PC",
     },
   ],
   correctAnswer: 0,
@@ -68,9 +68,8 @@ export const lesson2 = {
     ),
     text: (
       <>
-        <h2 className="pb-4 text-4xl font-bold">Que es un blockchain</h2>
+        <h2 className="pb-4 text-4xl font-bold">⛓️A blockchain</h2>
         <div className="py-3">
-          <h4 className="mb-2 font-semibold">⛓️ Blockchain</h4>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400">
             Public, digital database of crypto currency transactions. Constantly
             updated and backed up across millions of machines. Transactions are
@@ -333,7 +332,7 @@ const Lesson: NextPage = () => {
       return (
         <ProblemSelect1Of3
           problem={problem}
-          currentLesson={1}
+          currentLesson={currentLesson}
           totalLessons={totalLessons}
           selectedAnswer={selectedAnswer}
           setSelectedAnswer={setSelectedAnswer}

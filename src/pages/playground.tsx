@@ -13,29 +13,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UserNav } from "@/components/user-nav";
 
-
 const Playground: NextPage = () => {
-
   return (
     <>
-     <div className="md:hidden">
-       
-      </div>
+      <div className="md:hidden"></div>
       <div className="hidden flex-col md:flex">
         <div className="border-b">
           <div className="flex h-16 items-center px-4">
-           {/*  <TeamSwitcher /> */}
+            {/*  <TeamSwitcher /> */}
             {/* <MainNav className="mx-6" /> */}
             <div className="ml-auto flex items-center space-x-4">
-             {/*  <Search /> */}
+              {/*  <Search /> */}
               <UserNav />
             </div>
           </div>
@@ -44,7 +35,7 @@ const Playground: NextPage = () => {
           <div className="flex items-center justify-between space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
             <div className="flex items-center space-x-2">
-            {/*   <CalendarDateRangePicker /> */}
+              {/*   <CalendarDateRangePicker /> */}
               <Button>Download</Button>
               <ModeToggle />
             </div>
@@ -172,7 +163,7 @@ const Playground: NextPage = () => {
                     <CardTitle>Overview</CardTitle>
                   </CardHeader>
                   <CardContent className="pl-2">
-                   {/*  <Overview /> */}
+                    {/*  <Overview /> */}
                   </CardContent>
                 </Card>
                 <Card className="col-span-3">
@@ -182,16 +173,13 @@ const Playground: NextPage = () => {
                       You made 265 sales this month.
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                  {/*   <RecentSales /> */}
-                  </CardContent>
+                  <CardContent>{/*   <RecentSales /> */}</CardContent>
                 </Card>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </div>
-
     </>
   );
 };

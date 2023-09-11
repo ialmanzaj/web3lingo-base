@@ -14,7 +14,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-
 export const ProgressBar = ({
   currentLesson,
   totalLessons,
@@ -28,12 +27,11 @@ export const ProgressBar = ({
   onExit: () => void;
   hearts: null | number;
 }) => {
-  
   const router = useRouter();
   return (
     <>
       <div className="fixed left-0 right-0 top-0 z-10 bg-[#FBF9F4]">
-        <div className="w-full max-w-5xl sm:my-8 sm:px-5">
+        <div className="my-8 w-full max-w-5xl px-5">
           <header className="flex items-center gap-4">
             <AlertDialog>
               <AlertDialogTrigger asChild>

@@ -1,14 +1,20 @@
 import React from "react";
 import { LightningProgressSvg, TreasureProgressSvg } from "./Svgs";
 import { useBoundStore } from "../hooks/useBoundStore";
-import { Card, Box, Heading, Flex, Badge } from "@radix-ui/themes";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export const DailyQuestsSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-4 font-bold text-gray-700">
-      <h2 className="text-xl">Retos diarios</h2>
+    <Card className="flex flex-col gap-5 rounded-2xl p-4 font-bold text-gray-700 ">
+      <h2 className="text-xl">Daily challenges</h2>
       <div className="flex items-center gap-4">
         <LightningProgressSvg />
         <div className="flex flex-col gap-2">
@@ -32,6 +38,6 @@ export const DailyQuestsSection = () => {
           </div>
         </div>
       </div>
-    </article>
+    </Card>
   );
 };

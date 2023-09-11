@@ -1,4 +1,4 @@
-import { units } from "../utils/units";
+import { units } from "../utils/courses";
 
 export const getTopBarColors = (
   scrollY: number

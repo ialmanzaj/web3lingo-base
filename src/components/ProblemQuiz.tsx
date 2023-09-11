@@ -38,7 +38,7 @@ export const ProblemSelect1Of3 = ({
   const { question, answers, correctAnswer } = problem;
 
   return (
-    <div className="flex min-h-screen flex-col gap-5 bg-[#FBF9F4] px-4 py-5 sm:px-0 sm:py-0">
+    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5">
         <ProgressBar
           onExit={onExit}
@@ -48,8 +48,8 @@ export const ProblemSelect1Of3 = ({
           hearts={hearts}
         />
 
-        <section className="flex max-w-2xl grow flex-col gap-5 self-center sm:items-center sm:justify-center sm:gap-24 sm:px-5">
-          <h1 className="self-start text-2xl font-bold sm:text-3xl">
+        <section className="flex max-w-2xl grow flex-col gap-8 self-center sm:items-center sm:justify-center sm:gap-24 sm:px-5">
+          <h1 className="self-start text-4xl font-bold">
             {question}
           </h1>
           <div

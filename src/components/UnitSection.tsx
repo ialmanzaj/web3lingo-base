@@ -1,7 +1,7 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useBoundStore } from "../hooks/useBoundStore";
-import type { Unit } from "../utils/units";
+import type { Unit } from "../utils/courses";
 import { TileIcon } from "./TileIcon";
 import { tileStatus } from "./tileStatus";
 import { getTileColors } from "./getTileColors";
@@ -29,7 +29,7 @@ export const UnitSection = ({ unit }: { unit: Unit; }): JSX.Element => {
     (x) => x.increaseLessonsCompleted
   );
   const increaseLingots = useBoundStore((x) => x.increaseLingots);
-
+    
   return (
     <>
       <UnitHeader

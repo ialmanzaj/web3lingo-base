@@ -19,7 +19,7 @@ export const CheckAnswer = ({
   onSkip?: () => void;
 }) => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#FBF9F4]">
+    <div className="fixed bottom-0 left-0 right-0 bg-white">
       <section className="border-gray-200 sm:border-t-2 sm:p-8">
         <div className="mx-auto flex max-w-5xl sm:justify-between">
           <div className="hidden rounded-2xl p-3 transition sm:block sm:min-w-[150px] sm:max-w-fit"></div>
