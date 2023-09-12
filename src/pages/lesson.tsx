@@ -1,60 +1,204 @@
 import type { NextPage } from "next";
 import React, { useRef, useState } from "react";
-import {
-  AppleSvg,
-  BoySvg,
-  WomanSvg,
-} from "../components/Svgs";
 import { useRouter } from "next/router";
-import { ProblemSelect1Of3 } from "../components/ProblemSelect1Of3";
+import { ProblemSelect1Of3 } from "../components/ProblemQuiz";
 import { ProblemWriteInEnglish } from "../components/ProblemWriteInEnglish";
 import { LessonComplete } from "../components/LessonComplete";
 import { QuestionResult } from "../components/QuestionResult";
 import { LessonFastForwardStart } from "../components/LessonFastForwardStart";
 import { LessonFastForwardEndFail } from "../components/LessonFastForwardEndFail";
 import { LessonFastForwardEndPass } from "../components/LessonFastForwardEndPass";
+import { numbersEqual } from "../utils/array-utils";
+import Image from "next/image";
 
-export const lessonProblem1 = {
-  type: "SELECT_1_OF_3",
-  question: `Which one of these is "the apple"?`,
+export const lesson1 = {
+  type: "QUIZ",
+  question: `What is a blockchain?`,
   answers: [
-    { icon: <AppleSvg />, name: "la pera" },
-    { icon: <BoySvg />, name: "el niño" },
-    { icon: <WomanSvg />, name: "la mujer" },
+    {
+      icon: (
+        <Image
+          src="https://images.unsplash.com/photo-1667372459534-848ec00d4da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80"
+          width={500}
+          height={500}
+          alt="Picture of the author"
+        />
+      ),
+      name: "Database",
+    },
+    {
+      icon: (
+        <Image
+          width={500}
+          height={500}
+          alt="Picture of the author"
+          src="https://images.unsplash.com/photo-1642751227050-feb02d648136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGJsb2NrY2hhaW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=700&q=60"
+        />
+      ),
+      name: "NFT",
+    },
+    {
+      icon: (
+        <Image
+          width={500}
+          height={500}
+          alt="Picture of the author"
+          src="https://images.unsplash.com/flagged/photo-1569144654912-5f146d08b98b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGNvbXB1dGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+        />
+      ),
+      name: "PC",
+    },
   ],
   correctAnswer: 0,
 } as const;
 
-export const lessonProblem2 = {
-  type: "WRITE_IN_ENGLISH",
-  question: "El niño",
-  answerTiles: ["woman", "milk", "water", "I", "The", "boy"],
-  correctAnswer: [4, 5],
+export const lesson2 = {
+  type: "EXPLANING",
+  question: "Hello world",
+  content: {
+    image: (
+      <Image
+        style={{ width: "100%", height: "auto" }} // optional
+        src="/blockchain.jpg"
+        width={0}
+        height={0}
+        sizes="100vw"
+        alt="Picture of the author"
+      />
+    ),
+    text: (
+      <>
+        <h2 className="pb-4 text-4xl font-bold">⛓️A blockchain</h2>
+        <div className="py-3">
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Public, digital database of crypto currency transactions. Constantly
+            updated and backed up across millions of machines. Transactions are
+            permanent, irreversible, and viewable by anyone.
+          </p>
+        </div>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">⚖️ Decentralization</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            <ul className="list-disc">
+              <li>
+                Spreading out responsibility to many different parties instead
+                of one.
+              </li>
+              <li>Removing single point of power, failure, authority.</li>
+              <li>Letting people govern the systems they use.</li>
+            </ul>
+          </p>
+        </div>
+
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">🏦 Decentralized Finance</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Open & borderless financial system that connects the world through
+            the internet. Peer to Peer instead of relying on banks or
+            institutions. Financial service &apos;apps&apos; that run themselves
+            and are governed by its users via voting. (example: Compound)
+          </p>
+        </div>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">📱 Decentralized Apps (Dapps)</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Any type of app such as games, lending &amp; borrowing platforms,
+            NFT marketplaces etc.. An app can only be decentralized (not owned
+            by anyone), if it is built on a decentralized &apos;app store&apos;
+            (i.e : Ethereum) Examples of Dapps: Compound, Rarible, AAVE.
+          </p>
+        </div>
+      </>
+    ),
+  },
 } as const;
 
-const lessonProblems = [lessonProblem1, lessonProblem2];
+export const lesson3 = {
+  type: "EXPLANING",
+  question: "Hello world",
+  content: {
+    image: (
+      <Image
+        style={{ width: "100%", height: "auto" }} // optional
+        src="/wallet.jpg"
+        width={0}
+        height={0}
+        sizes="100vw"
+        alt="Picture of the author"
+      />
+    ),
+    text: (
+      <>
+        <h2 className="pb-4 text-4xl font-bold">Crypto Wallets</h2>
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">
+            ⛓️ Your New Personal Bank Account
+          </h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            A crypto wallet is like a bank account on steroids. Think about it,
+            any financial service you use, (PayPal, Credit Card, Stripe...)
+            needs to be linked to a bank account. Not just for funding, but for
+            verification. In crypto, your wallet is what connects you to the
+            DeFi applications that are out.
+          </p>
+        </div>
+        <div className="py-3">
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            Your wallet acts as your log-in for crypto apps. Just like when a
+            website asks you &quot;Would you like to log-in with Facebook /
+            Google?&quot;
+          </p>
+        </div>
 
-const numbersEqual = (a: readonly number[], b: readonly number[]): boolean => {
-  return a.length === b.length && a.every((_, i) => a[i] === b[i]);
-};
+        <div className="py-3">
+          <h4 className="mb-2 font-semibold">🏦 Concepts</h4>
+          <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+            <ul className="list-disc">
+              <li>
+                {" "}
+                Cold Storage = a hardware wallet, not connected to internet
+                (Ledger)
+              </li>
+              <li>Hot Storage = online facing wallet, such as MetaMask. </li>
+              <li>
+                Hardware wallet = physical crypto wallet device, like a ledger
+                nano x.
+              </li>
+              <li>
+                EVM = Ethereum Virtual Machine is what most networks are built
+                on. Browser
+              </li>
+              <li>
+                Wallet = A wallet in the form of a browser extension. (i.e
+                MetaMask)
+              </li>
+              <li>KYC = Real world verification required to use. </li>
+              <li>
+                Custodial = Thewallet providers holds your secret key. (if they
+                get hacked, so do you){" "}
+              </li>
+              <li>
+                Non-Custodial = Your wallet is as safe as you not losing your
+                password / seedphrase.{" "}
+              </li>
+              <li>
+                Self-Custody = Keeping your crypto inside a wallet that only YOU
+                have the key to.
+              </li>
+            </ul>
+          </p>
+        </div>
+      </>
+    ),
+  },
+} as const;
 
-export const formatTime = (timeMs: number): string => {
-  const seconds = Math.floor(timeMs / 1000) % 60;
-  const minutes = Math.floor(timeMs / 1000 / 60) % 60;
-  const hours = Math.floor(timeMs / 1000 / 60 / 60);
-  if (hours === 0)
-    return [minutes, seconds]
-      .map((x) => x.toString().padStart(2, "0"))
-      .join(":");
-  return [hours, minutes, seconds]
-    .map((x) => x.toString().padStart(2, "0"))
-    .join(":");
-};
+const lessons = [lesson1, lesson2, lesson3];
 
 const Lesson: NextPage = () => {
   const router = useRouter();
 
-  const [lessonProblem, setLessonProblem] = useState(0);
+  const [currentLesson, setLesson] = useState(0);
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
   const [incorrectAnswerCount, setIncorrectAnswerCount] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<null | number>(null);
@@ -69,9 +213,14 @@ const Lesson: NextPage = () => {
   const [questionResults, setQuestionResults] = useState<QuestionResult[]>([]);
   const [reviewLessonShown, setReviewLessonShown] = useState(false);
 
-  const problem = lessonProblems[lessonProblem] ?? lessonProblem1;
+  const problem = lessons[currentLesson] ?? lesson1;
+  console.log(problem, currentLesson);
+  const { correctAnswer } = lesson1;
+  const isAnswerCorrect = Array.isArray(correctAnswer)
+    ? numbersEqual(selectedAnswers, correctAnswer)
+    : selectedAnswer === correctAnswer;
 
-  const totalCorrectAnswersNeeded = 2;
+  const totalLessons = lessons.length;
 
   const [isStartingLesson, setIsStartingLesson] = useState(true);
   const hearts =
@@ -80,10 +229,15 @@ const Lesson: NextPage = () => {
       ? 3 - incorrectAnswerCount
       : null;
 
-  const { correctAnswer } = problem;
-  const isAnswerCorrect = Array.isArray(correctAnswer)
-    ? numbersEqual(selectedAnswers, correctAnswer)
-    : selectedAnswer === correctAnswer;
+  const onNext = () => {
+    setCorrectAnswerShown(true);
+    setCorrectAnswerCount((x) => x + 1);
+  };
+
+  const onExit = () => {
+    void router.push("/learn");
+    return;
+  };
 
   const onCheckAnswer = () => {
     setCorrectAnswerShown(true);
@@ -97,15 +251,13 @@ const Lesson: NextPage = () => {
       {
         question: problem.question,
         yourResponse:
-          problem.type === "SELECT_1_OF_3"
+          problem.type === "QUIZ"
             ? problem.answers[selectedAnswer ?? 0]?.name ?? ""
-            : selectedAnswers.map((i) => problem.answerTiles[i]).join(" "),
+            : "",
         correctResponse:
-          problem.type === "SELECT_1_OF_3"
+          problem.type === "QUIZ"
             ? problem.answers[problem.correctAnswer].name
-            : problem.correctAnswer
-                .map((i) => problem.answerTiles[i])
-                .join(" "),
+            : "",
       },
     ]);
   };
@@ -114,7 +266,7 @@ const Lesson: NextPage = () => {
     setSelectedAnswer(null);
     setSelectedAnswers([]);
     setCorrectAnswerShown(false);
-    setLessonProblem((x) => (x + 1) % lessonProblems.length);
+    setLesson((x) => (x + 1) % lessons.length);
     endTime.current = Date.now();
   };
 
@@ -140,7 +292,7 @@ const Lesson: NextPage = () => {
     hearts !== null &&
     hearts >= 0 &&
     !correctAnswerShown &&
-    correctAnswerCount >= totalCorrectAnswersNeeded
+    correctAnswerCount >= totalLessons
   ) {
     return (
       <LessonFastForwardEndPass
@@ -161,7 +313,7 @@ const Lesson: NextPage = () => {
     );
   }
 
-  if (correctAnswerCount >= totalCorrectAnswersNeeded && !correctAnswerShown) {
+  if (correctAnswerCount >= totalLessons && !correctAnswerShown) {
     return (
       <LessonComplete
         correctAnswerCount={correctAnswerCount}
@@ -176,12 +328,12 @@ const Lesson: NextPage = () => {
   }
 
   switch (problem.type) {
-    case "SELECT_1_OF_3": {
+    case "QUIZ": {
       return (
         <ProblemSelect1Of3
           problem={problem}
-          correctAnswerCount={correctAnswerCount}
-          totalCorrectAnswersNeeded={totalCorrectAnswersNeeded}
+          currentLesson={currentLesson}
+          totalLessons={totalLessons}
           selectedAnswer={selectedAnswer}
           setSelectedAnswer={setSelectedAnswer}
           quitMessageShown={quitMessageShown}
@@ -190,26 +342,28 @@ const Lesson: NextPage = () => {
           isAnswerCorrect={isAnswerCorrect}
           onCheckAnswer={onCheckAnswer}
           onFinish={onFinish}
+          onExit={onExit}
           onSkip={onSkip}
           hearts={hearts}
         />
       );
     }
 
-    case "WRITE_IN_ENGLISH": {
+    case "EXPLANING": {
       return (
         <ProblemWriteInEnglish
-          problem={problem}
-          correctAnswerCount={correctAnswerCount}
-          totalCorrectAnswersNeeded={totalCorrectAnswersNeeded}
+          content={problem.content}
+          currentLesson={currentLesson}
+          totalLessons={totalLessons}
           selectedAnswers={selectedAnswers}
           setSelectedAnswers={setSelectedAnswers}
           quitMessageShown={quitMessageShown}
           correctAnswerShown={correctAnswerShown}
           setQuitMessageShown={setQuitMessageShown}
           isAnswerCorrect={isAnswerCorrect}
-          onCheckAnswer={onCheckAnswer}
+          onCheckAnswer={onNext}
           onFinish={onFinish}
+          onExit={onExit}
           onSkip={onSkip}
           hearts={hearts}
         />
@@ -219,5 +373,3 @@ const Lesson: NextPage = () => {
 };
 
 export default Lesson;
-
-

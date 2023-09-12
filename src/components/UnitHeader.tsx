@@ -12,6 +12,7 @@ export const UnitHeader = ({
   borderColor: `border-${string}`;
 }) => {
   const course = useBoundStore((x) => x.course);
+  
   return (
     <article
       className={["max-w-2xl text-white sm:rounded-xl", backgroundColor].join(
@@ -21,7 +22,7 @@ export const UnitHeader = ({
       <header className="flex items-center justify-between gap-4 p-4">
         <div className="flex flex-col gap-1">
           <h2 className="text-2xl font-bold">{course.name}</h2>
-          <p className="text-lg">{description}</p>
+          <p className="text-lg">{course.description}</p>
         </div>
         {/* <Link
           href={``}

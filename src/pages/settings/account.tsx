@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import React, { useState } from "react";
-import { BottomBar } from "../../components/BottomBar";
-import { LeftBar } from "../../components/LeftBar";
-import { TopBar } from "../../components/TopBar";
-import { SettingsRightNav } from "../../components/SettingsRightNav";
+import { BottomBar } from "@/components/BottomBar";
+import { LeftBar } from "@/components/LeftBar";
+import { TopBar } from "@/components/TopBar";
+import { SettingsRightNav } from "@/components/SettingsRightNav";
 import { useBoundStore } from "../../hooks/useBoundStore";
 
 const Account: NextPage = () => {

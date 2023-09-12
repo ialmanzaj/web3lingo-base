@@ -13,3 +13,7 @@ export const sum = (numbers: number[]): number => {
   }
   return total;
 };
+
+export const numbersEqual = (a: readonly number[], b: readonly number[]): boolean => {
+  return a.length === b.length && a.every((_, i) => a[i] === b[i]);
+};

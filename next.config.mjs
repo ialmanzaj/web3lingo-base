@@ -9,22 +9,16 @@ const config = {
   async redirects() {
     return [
       {
-        source: '/',
+        source: "/",
         has: [
           {
-            type: 'host',
-            value: 'www.aprendiendodefi.com',
+            type: "host",
+            value: "app.aprendiendodefi.com",
           },
         ],
         permanent: false,
-        destination: 'https://aprendiendodefi.framer.ai/',
+        destination: "/learn",
       },
-      /* {
-        source: '/',
-        destination: '',
-        permanent: false,
-      }, */
-
     ];
   },
   reactStrictMode: true,
@@ -40,14 +34,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placekitten.com",
-        port: "",
-        pathname: "/100/100",
-      },
-    ],
+    domains: ["images.unsplash.com",],
   },
 };
 export default config;

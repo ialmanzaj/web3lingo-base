@@ -1,223 +1,210 @@
 import { type NextPage } from "next";
-import Link from "next/link";
-import React, { useState } from "react";
-import { CourseHeader } from "../components/LanguageHeader";
-import { useBoundStore } from "../hooks/useBoundStore";
-import _bgSnow from "../../public/bg-snow.svg";
-
-import _logosDefi from "../../public/defi-logos.svg";
+import React, { useState, FormEvent, useRef } from "react";
+import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 import type { StaticImageData } from "next/image";
+import { Button } from "@/components/ui/button";
 
-const bgSnow = _bgSnow as StaticImageData;
-const bgDefi = _logosDefi as StaticImageData;
-
+import _bgSnow from "../../public/bg-snow.svg";
+import _logosDefi from "../../public/defi-logos.svg";
 
 const Home: NextPage = () => {
-  //const { loginScreenState, setLoginScreenState } = useLoginScreen();
-  const [email, setEmail] = useState('');
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const url =
+    "https://aprendiendodefi.us21.list-manage.com/subscribe/post?u=3ef26e10472c36d247a54389e&amp;id=a6db9a6c12&amp;f_id=00745de1f0";
 
-    if (!email.trim()) {
-      // Display an error message or take any other action
-      console.error('Email field cannot be empty.');
-      return;
-    }
+  const { loading, error, success, message, handleSubmit } =
+    useMailChimpForm(url);
+  const { fields, handleFieldChange } = useFormFields({
+    EMAIL: "",
+  });
 
-    const formData = { email }; // Create an object with the email value
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Handle successful form submission or show a success message
-          console.log('Form submitted successfully!');
-        } else {
-          console.error(response);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    handleSubmit(fields);
   };
 
-  const setLanguage = useBoundStore((x) => x.setLanguage);
-
   return (
-    <main
-      className="theme-dark flex min-h-screen flex-col items-center justify-center text-white"
-      style={{ backgroundImage: `url(${bgSnow.src})` }}
-    >
-      <CourseHeader />
-      <div className="h-full w-full	opacity-25 bg-no-repeat bg-center bg-cover -z-20 absolute" style={{ backgroundImage: `url(${bgDefi.src})` }}>
-
-      </div>
-
-      <div className="super-content-wrapper">
-        <div className="notion-header">
-          <div className="notion-header__cover has-cover">
-            <span
-              style={{
-                boxSizing: "border-box",
-                display: "block",
-                overflow: "hidden",
-                width: "initial",
-                height: "initial",
-                background: "none",
-                opacity: 1,
-                border: 0,
-                margin: 0,
-                padding: 0,
-                position: "absolute",
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0
-              }}
-            >
-              <img
-                alt="Cosmos"
-                sizes="100vw"
-                srcSet="https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=640&q=80 640w, 	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=750&q=80 750w, 	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=828&q=80 828w, 	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=1080&q=80 1080w, 	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=1200&q=80 1200w, 	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=1920&q=80 1920w, 	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=2048&q=80 2048w,	https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=3840&q=80 3840w"
-                src="https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=3840&q=80"
-                decoding="async"
-                data-nimg="fill"
-                className="notion-header__cover-image"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  bottom: 0,
-                  right: 0,
-                  boxSizing: "border-box",
-                  padding: 0,
-                  border: "none",
-                  margin: "auto",
-                  display: "block",
-                  width: 0,
-                  height: 0,
-                  minWidth: "100%",
-                  maxWidth: "100%",
-                  minHeight: "100%",
-                  maxHeight: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center 0%"
-                }}
-              />
-            </span>
-
-          </div>
-        </div>
-        <div className="super-content max-width has-footer">
-          <div className="footer-cover">
-            <span
-              style={{
-                boxSizing: "border-box",
-                display: "block",
-                overflow: "hidden",
-                width: "initial",
-                height: "initial",
-                background: "none",
-                opacity: 1,
-                border: 0,
-                margin: 0,
-                padding: 0,
-                position: "absolute",
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0
-              }}
-            >
-              <img
-                alt="Cosmos"
-                sizes="100vw"
-                srcSet="https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=640&q=80 640w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=750&q=80 750w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=828&q=80 828w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=1080&q=80 1080w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=1200&q=80 1200w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=1920&q=80 1920w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=2048&q=80 2048w, https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=3840&q=80 3840w"
-                src="https://cosmos.super.site/_next/image?url=https%3A%2F%2Fassets.super.so%2Fae866c24-7726-4f3c-aeb9-274d622b33a9%2Fimages%2F66712e46-8b40-4a78-b40a-2882831935f4%2Fcosmos-cover-1-min.png&w=3840&q=80"
-                decoding="async"
-                data-nimg="fill"
-                className="notion-header__cover-image"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  bottom: 0,
-                  right: 0,
-                  boxSizing: "border-box",
-                  padding: 0,
-                  border: "none",
-                  margin: "auto",
-                  display: "block",
-                  width: 0,
-                  height: 0,
-                  minWidth: "100%",
-                  maxWidth: "100%",
-                  minHeight: "100%",
-                  maxHeight: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center 0%"
-                }}
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-
-
-      <div className="flex w-full flex-col items-center justify-center gap-3 px-4 py-16 md:flex-row md:gap-36">
-        {/*  <GlobeSvg className="h-fit w-7/12 md:w-[360px]" /> */}
-        <div>
-          <p className="mb-6 max-w-[600px] text-center text-3xl font-bold md:mb-12">
-            Aprende web3 y DeFi de manera facil y divertida
-          </p>
-          <div className="mx-auto mt-4 flex w-fit flex-col items-center gap-3">
-            <Link
-              href="/"
-              className="w-full rounded-2xl border-b-4 border-green-700 bg-green-600 px-10 py-3 text-center font-bold uppercase transition hover:border-green-600 hover:bg-green-500 md:min-w-[320px]"
-            >
-              Join the waitlist
-            </Link> 
-
-            
-            {/*  
-            <form onSubmit={handleSubmit} className="waitlist">
-              <div className="flex w-full flex-col gap-4">
-                <input
-                  className="w-full rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3 text-slate-500"
-                  placeholder="Your Email Address"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button type="submit" className="w-full rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-110">
-                  Join the waitlist
-                </button>
+    <>
+      <>
+        <div className="relative overflow-hidden">
+          <div className="bg-white pb-14 pt-10 sm:pt-16 lg:overflow-hidden lg:pb-24 lg:pt-24">
+            <div className="mx-auto max-w-5xl lg:px-8">
+              <div className="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div className="mx-auto max-w-md px-4 text-center sm:max-w-2xl sm:px-6 lg:flex lg:items-center lg:px-0 lg:text-left">
+                  <div className="lg:py-24">
+                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                      <span className="block text-purple-600">Web3lingo </span>
+                      <span className="block text-black">
+                        A fun way <br></br>to learn crypto
+                      </span>
+                    </h1>
+                    <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                      Learn crypto at your own pace with guided, bite-sized
+                      education that&apos;s effective and fun. <br></br>
+                      <br></br> Join the waitlist to try the beta before it&apos;s
+                      publicly available.
+                    </p>
+                    <div className="mt-10 sm:mt-12">
+                      {/* This is a working waitlist form. Create your access key from https://web3forms.com/s to setup.  */}
+                      <form
+                        onSubmit={onSubmit}
+                        className="sm:mx-auto sm:max-w-xl lg:mx-0"
+                        //action="https://aprendiendodefi.us21.list-manage.com/subscribe/post?u=3ef26e10472c36d247a54389e&amp;id=a6db9a6c12&amp;f_id=00745de1f0"
+                      >
+                        <div className="sm:flex">
+                          {/* <input
+                            type="hidden"
+                            name="access_key"
+                            defaultValue="YOUR_ACCESS_KEy_HERE"
+                          />
+                          <input
+                            type="hidden"
+                            name="subject"
+                            defaultValue="New Waitlist"
+                          /> */}
+                          <div className="min-w-0 flex-1">
+                            <label htmlFor="email" className="sr-only">
+                              Email address
+                            </label>
+                            <input
+                              onChange={handleFieldChange}
+                              value={fields.EMAIL}
+                              id="EMAIL"
+                              autoFocus
+                              required
+                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                              type="email"
+                              placeholder="Enter your email"
+                              className="block w-full rounded-md border-0 bg-gray-200 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                              defaultValue=""
+                              autoComplete="off"
+                            />
+                          </div>
+                          <div className="mt-3 sm:ml-3 sm:mt-0">
+                            <button
+                              ref={buttonRef}
+                              type="submit"
+                              className="grow rounded-2xl border-b-4 border-purple-600 bg-purple-500 p-3 font-bold text-white duration-300 ease-out hover:bg-purple-600 sm:min-w-[150px] sm:max-w-fit sm:grow-0"
+                            >
+                              Join Waitlist
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                      <div className="relative py-3">
+                        {(success || error) && (
+                          <div className="shadow-outline-gray animate-fade-bottom absolute flex items-start space-x-2 rounded-[9px] bg-purple-200 px-6 py-4 ">
+                            <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-purple-600 bg-purple-500">
+                              🥳
+                            </div>
+                            <div className="text-xs sm:text-sm">
+                              {success ? (
+                                <p>
+                                  Congrats! We are excited to have you here,
+                                  We&apos;ve added{" "}
+                                  <span className="font-bold">
+                                    {fields.EMAIL}
+                                  </span>{" "}
+                                  to our waitlist. We&apos;ll let you when ready
+                                  start to try it out.
+                                </p>
+                              ) : (
+                                <p>
+                                  You are already added to our waitlist.
+                                  We&apos;ll let you know when we launch!
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-12 hidden lg:block">
+                  <img
+                    className=""
+                    src="https://user-images.githubusercontent.com/1884712/202186141-9f8a93e1-7743-459a-bc95-b1d826931624.png"
+                    alt=""
+                  />
+                </div>
               </div>
-
-            </form> */}
-
-            {/* <button
-              className="w-full rounded-2xl border-2 border-b-4  px-8 py-3 font-bold uppercase transition md:min-w-[320px]"
-              onClick={() => setLoginScreenState("LOGIN")}
-            >
-              Ya tengo una cuenta
-            </button> */}
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* <LoginScreen
-        loginScreenState={loginScreenState}
-        setLoginScreenState={setLoginScreenState}
-      /> */}
-    </main>
+        <footer className="bg-white">
+          <div className="mx-auto max-w-7xl overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
+            <nav
+              className="-mx-5 -my-2 flex flex-wrap justify-center"
+              aria-label="Footer"
+            >
+              <div className="px-5 py-2">
+                <a
+                  href="#"
+                  className="text-base text-gray-500 hover:text-gray-900"
+                >
+                  About
+                </a>
+              </div>
+              <div className="px-5 py-2">
+                <a
+                  href="#"
+                  className="text-base text-gray-500 hover:text-gray-900"
+                >
+                  Press
+                </a>
+              </div>
+              <div className="px-5 py-2">
+                <a
+                  href="#"
+                  className="text-base text-gray-500 hover:text-gray-900"
+                >
+                  Privacy
+                </a>
+              </div>
+            </nav>
+            <div className="mt-8 flex justify-center space-x-6">
+              <a
+                href="https://twitter.com/web3templates"
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <span className="sr-only">Twitter</span>
+                <svg
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6"
+                  aria-hidden="true"
+                >
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/web3templates"
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <span className="sr-only">GitHub</span>
+                <svg
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p className="mt-8 text-center text-base text-gray-400">
+              © 2022 AprendiendoDeFi. All rights reserved.
+            </p>
+          </div>
+        </footer>
+      </>
+    </>
   );
 };
 

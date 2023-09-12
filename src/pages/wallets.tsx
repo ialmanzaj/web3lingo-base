@@ -5,15 +5,15 @@ import {
   UpArrowSvg,
   PracticeExerciseSvg,
 } from "../components/Svgs";
-import { TopBar } from "../components/TopBar";
-import { BottomBar } from "../components/BottomBar";
-import { RightBar } from "../components/RightBar";
-import { LeftBar } from "../components/LeftBar";
-import { LoginScreen, useLoginScreen } from "../components/LoginScreen";
-import { units } from "../utils/units";
-import { tileLeftClassNames } from "../components/tileLeftClassNames";
-import { UnitSection } from "../components/UnitSection";
-import { getTopBarColors } from "../components/getTopBarColors";
+import { TopBar } from "@/components/TopBar";
+import { BottomBar } from "@/components/BottomBar";
+import { RightBar } from "@/components/RightBar";
+import { LeftBar } from "@/components/LeftBar";
+import { LoginScreen, useLoginScreen } from "@/components/LoginScreen";
+import { units } from "../utils/courses";
+import { tileLeftClassNames } from "@/components/tileLeftClassNames";
+import { UnitSection } from "@/components/UnitSection";
+import { getTopBarColors } from "@/components/getTopBarColors";
 
 
 
@@ -106,4 +106,3 @@ const Wallets: NextPage = () => {
 };
 
 export default Wallets;
-

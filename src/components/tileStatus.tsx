@@ -1,5 +1,5 @@
-import type { Tile } from "../utils/units";
-import { units } from "../utils/units";
+import type { Tile } from "../utils/courses";
+import { units } from "../utils/courses";
 
 export type TileStatus = "LOCKED" | "ACTIVE" | "COMPLETE";
 

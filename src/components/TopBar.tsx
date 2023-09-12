@@ -15,12 +15,16 @@ import {
 import { EmptyFireTopBarSvg } from "./Svgs";
 import { EmptyGemTopBarSvg } from "./Svgs";
 import { AddLanguageSvg } from "./Svgs";
+import { CurrentCourse } from "@/components/CurrentCourse";
+import { UserNav } from "./user-nav";
+import CourseSwitcher from "@/components/course-switcher";
+
 
 type MenuState = "HIDDEN" | "LANGUAGES" | "STREAK" | "GEMS" | "MORE";
 
 export const TopBar = ({
-  backgroundColor = "bg-[#58cc02]",
-  borderColor = "border-[#46a302]",
+  backgroundColor,
+  borderColor,
 }: {
   backgroundColor?: `bg-${string}`;
   borderColor?: `border-${string}`;
@@ -31,9 +35,9 @@ export const TopBar = ({
   const lingots = useBoundStore((x) => x.lingots);
   const course = useBoundStore((x) => x.course);
   return (
-    <header className="fixed z-20 h-[58px] w-full">
+    <header className="fixed z-20 w-full sm:relative">
       <div
-        className={`relative flex h-full w-full items-center justify-between border-b-2 px-[10px] transition duration-500 sm:hidden ${borderColor} ${backgroundColor}`}
+        className={`relative flex h-full w-full items-center justify-between border-b-2 px-[10px] transition duration-500 sm:hidden`}
       >
         <button
           onClick={() =>
@@ -75,7 +79,7 @@ export const TopBar = ({
 
         <div
           className={[
-            "absolute top-full left-0 right-0 bg-white transition duration-300",
+            "absolute left-0 right-0 top-full bg-white transition duration-300",
             menu === "HIDDEN" ? "opacity-0" : "opacity-100",
           ].join(" ")}
           aria-hidden={menu === "HIDDEN"}
@@ -173,6 +177,33 @@ export const TopBar = ({
             aria-label="Hide menu"
             role="button"
           ></div>
+        </div>
+      </div>
+
+      <div className="mx-auto hidden max-w-screen-xl flex-wrap items-center justify-between border-b p-4  sm:flex">
+        <Link href="/" className="flex items-center">
+          🚀
+          <span className="self-center whitespace-nowrap text-2xl font-semibold ">
+            AprendiendoDeFi
+          </span>
+        </Link>
+
+        <div className="hidden w-full sm:block sm:w-auto " id="navbar-default">
+          <ul className="mt-4 flex flex-col items-center rounded-lg p-4 font-medium  sm:mt-0 sm:flex-row sm:space-x-8 sm:border-0 sm:p-0 ">
+            {/*  <li>
+            <a
+              href="#"
+              className="block rounded  py-2 pl-3 pr-4 md:bg-transparent md:p-0 "
+              aria-current="page"
+            >
+              Home
+            </a>
+          </li> */}
+            <CourseSwitcher />
+
+            <CurrentCourse />
+            <UserNav />
+          </ul>
         </div>
       </div>
     </header>

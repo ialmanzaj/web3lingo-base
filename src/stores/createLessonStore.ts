@@ -1,4 +1,4 @@
-import { units } from "../utils/units";
+import { units } from "../utils/courses";
 import type { BoundStateCreator } from "../hooks/useBoundStore";
 
 export type LessonSlice = {

@@ -1,59 +1,89 @@
 import Link from "next/link";
 import React from "react";
+import { CloseSvg, LessonTopBarEmptyHeart, LessonTopBarHeart } from "./Svgs";
+import { useRouter } from "next/router";
 import {
-  CloseSvg, LessonTopBarEmptyHeart,
-  LessonTopBarHeart
-} from "./Svgs";
-
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export const ProgressBar = ({
-  correctAnswerCount, totalCorrectAnswersNeeded, setQuitMessageShown, hearts,
+  currentLesson,
+  totalLessons,
+  setQuitMessageShown,
+  onExit,
+  hearts,
 }: {
-  correctAnswerCount: number;
-  totalCorrectAnswersNeeded: number;
+  currentLesson: number;
+  totalLessons: number;
   setQuitMessageShown: (isShown: boolean) => void;
+  onExit: () => void;
   hearts: null | number;
 }) => {
+  const router = useRouter();
   return (
-    <header className="flex items-center gap-4">
-      {correctAnswerCount === 0 ? (
-        <Link href="/wallets" className="text-gray-400">
-          <CloseSvg />
-          <span className="sr-only">Exit lesson</span>
-        </Link>
-      ) : (
-        <button
-          className="text-gray-400"
-          onClick={() => setQuitMessageShown(true)}
-        >
-          <CloseSvg />
-          <span className="sr-only">Exit lesson</span>
-        </button>
-      )}
-      <div
-        className="h-4 grow rounded-full bg-gray-200"
-        role="progressbar"
-        aria-valuemin={0}
-        aria-valuemax={1}
-        aria-valuenow={correctAnswerCount / totalCorrectAnswersNeeded}
-      >
-        <div
-          className={"h-full rounded-full bg-green-500 transition-all duration-700 " +
-            (correctAnswerCount > 0 ? "px-2 pt-1 " : "")}
-          style={{
-            width: `${(correctAnswerCount / totalCorrectAnswersNeeded) * 100}%`,
-          }}
-        >
-          <div className="h-[5px] w-full rounded-full bg-green-400"></div>
+    <>
+      <div className="fixed left-0 right-0 top-0 z-10 bg-[#FBF9F4]">
+        <div className="my-8 w-full max-w-5xl px-5">
+          <header className="flex items-center gap-4">
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <button className="text-gray-400">
+                  <CloseSvg />
+                  <span className="sr-only">Exit lesson</span>
+                </button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    You’re doing absolutely wonderful. If you quit now, you’ll
+                    lose all your progress.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogAction onClick={onExit}>
+                    Exit Lesson
+                  </AlertDialogAction>
+                  <AlertDialogCancel>Keep learning</AlertDialogCancel>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+            <div
+              className="h-4 grow rounded-full bg-gray-200"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={1}
+              aria-valuenow={currentLesson / totalLessons}
+            >
+              <div
+                className={
+                  "h-full rounded-full bg-purple-500 transition-all duration-700 " +
+                  (currentLesson > 0 ? "px-2 pt-1 " : "")
+                }
+                style={{
+                  width: `${(currentLesson / totalLessons) * 100}%`,
+                }}
+              ></div>
+            </div>
+            {hearts !== null &&
+              [1, 2, 3].map((heart) => {
+                if (heart <= hearts) {
+                  return <LessonTopBarHeart key={heart} />;
+                }
+                return <LessonTopBarEmptyHeart key={heart} />;
+              })}
+          </header>
         </div>
       </div>
-      {hearts !== null &&
-        [1, 2, 3].map((heart) => {
-          if (heart <= hearts) {
-            return <LessonTopBarHeart key={heart} />;
-          }
-          return <LessonTopBarEmptyHeart key={heart} />;
-        })}
-    </header>
+      <div className="my-10"></div>
+    </>
   );
 };
