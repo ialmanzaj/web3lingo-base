@@ -19,22 +19,6 @@ const config = {
         permanent: false,
         destination: "/learn",
       },
-      {
-        source: "/",
-        has: [
-          {
-            type: "host",
-            value: "www.aprendiendodefi.com",
-          },
-        ],
-        permanent: false,
-        destination: "https://aprendiendodefi.framer.ai/",
-      },
-      /* {
-        source: '/',
-        destination: 'https://aprendiendodefi.framer.ai/',
-        permanent: true,
-      }, */
     ];
   },
   reactStrictMode: true,
