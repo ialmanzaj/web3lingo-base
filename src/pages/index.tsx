@@ -41,8 +41,8 @@ const Home: NextPage = () => {
                     </h1>
                     <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                       Learn crypto at your own pace with guided, bite-sized
-                      education that’s effective and fun. <br></br>
-                      <br></br> Join the waitlist to try the beta before it's
+                      education that&apos;s effective and fun. <br></br>
+                      <br></br> Join the waitlist to try the beta before it&apos;s
                       publicly available.
                     </p>
                     <div className="mt-10 sm:mt-12">
