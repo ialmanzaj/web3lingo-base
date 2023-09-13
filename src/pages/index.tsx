@@ -4,7 +4,7 @@ import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 import type { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 
-import _bgSnow from "../../public/bg-snow.svg";
+import _appScreenshot from "../../public/app_screenshot.png";
 import _logosDefi from "../../public/defi-logos.svg";
 
 const Home: NextPage = () => {
@@ -28,11 +28,11 @@ const Home: NextPage = () => {
     <>
       <>
         <div className="relative overflow-hidden">
-          <div className="bg-white pb-14 pt-10 sm:pt-16 lg:overflow-hidden lg:pb-24 lg:pt-24">
+          <div className="pb-14 pt-10 sm:pt-16 lg:overflow-hidden lg:pb-24 lg:pt-24">
             <div className="mx-auto max-w-5xl lg:px-8">
-              <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-                <div className="mx-auto max-w-md px-4 text-center sm:max-w-2xl sm:px-6 lg:flex lg:items-center lg:px-0 lg:text-left">
-                  <div className="lg:py-24">
+              <div className="flex flex-col gap-2">
+                <div className="mx-auto max-w-md px-4 text-center sm:max-w-2xl sm:px-6 lg:flex">
+                  <div className="lg:py-18">
                     <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                       <span className="block text-purple-600">Web3lingo </span>
                       <span className="block text-black">
@@ -42,8 +42,8 @@ const Home: NextPage = () => {
                     <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                       Learn crypto at your own pace with guided, bite-sized
                       education that&apos;s effective and fun. <br></br>
-                      <br></br> Join the waitlist to try the beta before it&apos;s
-                      publicly available.
+                      <br></br> Join the waitlist to try the beta before
+                      it&apos;s publicly available.
                     </p>
                     <div className="mt-10 sm:mt-12">
                       {/* This is a working waitlist form. Create your access key from https://web3forms.com/s to setup.  */}
@@ -122,18 +122,35 @@ const Home: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-12 hidden lg:block">
+                <div className="">
                   <img
-                    className=""
-                    src="https://user-images.githubusercontent.com/1884712/202186141-9f8a93e1-7743-459a-bc95-b1d826931624.png"
+                    className="h-2/3 w-full"
+                    src={_appScreenshot.src}
                     alt=""
                   />
+                  {/* <p
+                    style={{
+                      border: 0,
+                      width: "100%",
+                      marginBottom: 0,
+                      height: 450,
+                    }}
+                  >
+                    <iframe
+                      style={{ width: "100%", height: "100%" }}
+                      src="https://www.floik.com/embed/df86ce94-6eaf-4b1c-8f65-2ad84c76625a/07cd15d3-8b38-463e-85cd-1486167b52e5-flo.html?show-author=true"
+                      width="100%"
+                      height="450px"
+                      frameBorder={0}
+                      allowFullScreen={true}
+                    ></iframe>
+                  </p> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <footer className="bg-white">
+        <footer className="">
           <div className="mx-auto max-w-7xl overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
             <nav
               className="-mx-5 -my-2 flex flex-wrap justify-center"
