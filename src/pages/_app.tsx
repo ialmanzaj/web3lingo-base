@@ -15,11 +15,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <meta name="description" content="Aprende DeFi facil y divertido" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <main className={inter.className}>
-          <Component {...pageProps} className={inter.className} />
-        </main>
-      </ThemeProvider>
+
+      <main className={inter.className}>
+        <Component {...pageProps} className={inter.className} />
+      </main>
     </>
   );
 };
