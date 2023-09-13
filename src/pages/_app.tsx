@@ -15,7 +15,6 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <meta name="description" content="Aprende DeFi facil y divertido" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={inter.className}>
         <Component {...pageProps} className={inter.className} />
       </main>

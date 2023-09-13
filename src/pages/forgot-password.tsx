@@ -35,14 +35,14 @@ const ForgotPassword: NextPage = () => {
           <div className="hidden items-center gap-5 md:flex">
             <CourseDropDown />
             <button
-              className="rounded-2xl border-b-4 border-blue-300 bg-white py-2 px-4 uppercase text-blue-800 transition hover:brightness-110"
+              className="rounded-2xl border-b-4 border-blue-300 bg-white px-4 py-2 uppercase text-blue-800 transition hover:brightness-110"
               onClick={() => setLoginScreenState("LOGIN")}
             >
               Login
             </button>
             <Link
               href="/register"
-              className="rounded-2xl border-b-4 border-green-600 bg-green-500 py-2 px-4 uppercase text-white transition hover:brightness-110"
+              className="rounded-2xl border-b-4 border-green-600 bg-green-500 px-4 py-2 uppercase text-white transition hover:brightness-110"
             >
               Get started
             </Link>
@@ -55,7 +55,7 @@ const ForgotPassword: NextPage = () => {
           >
             <MenuIconSvg aria-hidden="true" />
             {mobileMenuShown && (
-              <div className="absolute top-full right-0 rounded-2xl border-2 border-gray-300 bg-white font-bold text-gray-700">
+              <div className="absolute right-0 top-full rounded-2xl border-2 border-gray-300 bg-white font-bold text-gray-700">
                 <Link
                   className="block min-w-max cursor-pointer rounded-t-2xl px-5 py-2 hover:bg-gray-100"
                   href="/?login"

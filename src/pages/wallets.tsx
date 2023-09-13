@@ -1,10 +1,7 @@
 import { type NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  UpArrowSvg,
-  PracticeExerciseSvg,
-} from "../components/Svgs";
+import { UpArrowSvg, PracticeExerciseSvg } from "../components/Svgs";
 import { TopBar } from "@/components/TopBar";
 import { BottomBar } from "@/components/BottomBar";
 import { RightBar } from "@/components/RightBar";
@@ -14,8 +11,6 @@ import { units } from "../utils/courses";
 import { tileLeftClassNames } from "@/components/tileLeftClassNames";
 import { UnitSection } from "@/components/UnitSection";
 import { getTopBarColors } from "@/components/getTopBarColors";
-
-
 
 type TileLeftClassName = (typeof tileLeftClassNames)[number];
 
@@ -40,7 +35,9 @@ export const getTileLeftClassName = ({
   return classNames[index % classNames.length] ?? "left-0";
 };
 
-export const tileTooltipLeftOffsets = [140, 95, 70, 95, 140, 185, 210, 185] as const;
+export const tileTooltipLeftOffsets = [
+  140, 95, 70, 95, 140, 185, 210, 185,
+] as const;
 
 export type TileTooltipLeftOffset = (typeof tileTooltipLeftOffsets)[number];
 
@@ -65,9 +62,8 @@ const Wallets: NextPage = () => {
       />
       <LeftBar selectedTab="Aprender" />
 
-      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12 bg-white">
-
-        <RightBar /> 
+      <div className="flex justify-center gap-3 bg-white pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12">
+        <RightBar />
 
         <div className="flex max-w-2xl grow flex-col">
           {units.map((unit) => (
