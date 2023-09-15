@@ -11,6 +11,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <script
+          async
+          src="https://analytics.umami.is/script.js"
+          data-website-id="2699f40b-0888-4871-b219-e8ceb4b6ddfb"
+        ></script>
         <title>Aprendiendo DeFi | Web3</title>
         <meta name="description" content="Aprende DeFi facil y divertido" />
         <link rel="icon" href="/favicon.ico" />
