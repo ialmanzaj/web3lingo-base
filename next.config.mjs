@@ -13,7 +13,7 @@ const config = {
         has: [
           {
             type: "host",
-            value: "app.aprendiendodefi.com",
+            value: "app.web3lingo.com",
           },
         ],
         permanent: false,
