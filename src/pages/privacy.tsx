@@ -15,7 +15,7 @@ const Privacy: NextPage = () => {
         <p className="py-6 text-2xl font-bold">Política de Privacidad</p>
         <br></br>
         <br></br>
-        <p>Fecha de entrada en vigencia: 18 de septiembre de 2023</p>
+        <p>Fecha de entrada en vigencia: 1 de agosto de 2023</p>
         <br></br>
         <p>
           Esta Política de Privacidad describe cómo Web3lingo

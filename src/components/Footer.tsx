@@ -9,9 +9,9 @@ export const Footer = () => {
           aria-label="Footer"
         >
           <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-500 hover:text-gray-900">
+            <Link href="/about" className="text-base text-gray-500 hover:text-gray-900">
               About
-            </a>
+            </Link>
           </div>
           <div className="px-5 py-2">
             <a
@@ -24,7 +24,7 @@ export const Footer = () => {
               href="/privacy"
               className="text-base text-gray-500 hover:text-gray-900"
             >
-              Privacy
+              Privacy policy
             </Link>
           </div>
         </nav>
