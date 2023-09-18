@@ -66,7 +66,7 @@ const Home: NextPage = () => {
                               {success ? (
                                 <p>
                                   ¡Felicidades! Estamos muy contentos de tenerte
-                                  aquí, Ya te hemos agregado a a nuestra lista
+                                  aquí, Ya te hemos agregado a nuestra lista
                                   de espera. Te avisaremos cuando esté listo
                                   para probarlo.
                                 </p>
@@ -122,7 +122,7 @@ const Home: NextPage = () => {
                                 type="submit"
                                 className="grow rounded-2xl border-b-4 border-purple-600 bg-purple-500 p-3 font-bold text-white duration-300 ease-out hover:bg-purple-600 sm:min-w-[150px] sm:max-w-fit sm:grow-0"
                               >
-                                Join Waitlist
+                                Unirme
                               </button>
                             </div>
                           </div>
