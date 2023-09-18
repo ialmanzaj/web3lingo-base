@@ -4,7 +4,8 @@ import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 import type { StaticImageData } from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import _guided from "../../public/Guided.png";
+import Image from "next/image";
+
 import _gamified from "../../public/game.png";
 import _nft from "../../public/nft.png";
 import _goal from "../../public/goal.png";
@@ -130,11 +131,18 @@ const Home: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="m-auto max-w-screen-sm	space-y-4 px-4 sm:max-w-full">
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <Card>
+                <div className="m-auto max-w-screen-sm space-y-4 px-4 sm:max-w-full">
+                  <div className="grid gap-4  md:grid-cols-2">
+                    <Card className="max-w-full">
                       <CardHeader>
-                        <img src={_guided.src} className="max-w-fit	" />
+                        <Image
+                          src="/guided.png"
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          style={{ width: "100%", height: "auto" }} // optional
+                          alt=""
+                        />
                         <CardTitle>Lecciones breves y guiadas</CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -148,7 +156,14 @@ const Home: NextPage = () => {
 
                     <Card>
                       <CardHeader>
-                        <img src={_gamified.src} className="max-w-fit" />
+                        <Image
+                          src="/game.png"
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          style={{ width: "100%", height: "auto" }} // optional
+                          alt="dssd"
+                        />
                         <CardTitle>
                           Experiencia gamificada, para hacerlo un hábito
                         </CardTitle>
@@ -162,10 +177,17 @@ const Home: NextPage = () => {
                       </CardContent>
                     </Card>
                   </div>
-                  <div className="grid-cols-1s grid gap-4 md:grid-cols-3">
-                    <Card>
-                      <CardHeader>
-                        <img src={_puzzle.src} className="max-w-fit p-8" />
+                  <div className="grid gap-4 sm:grid md:grid-cols-3">
+                    <Card className="max-w-full">
+                      <CardHeader className="relative">
+                        <Image
+                          width={0}
+                          height={0}
+                          sizes="80vw"
+                          style={{ width: "90%", height: "auto" }} // optional
+                          src="/puzzle.png"
+                          alt=""
+                        />
                         <CardTitle>Tareas</CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -177,7 +199,14 @@ const Home: NextPage = () => {
                     </Card>
                     <Card>
                       <CardHeader>
-                        <img src={_goal.src} className="max-w-fit p-4" />
+                        <Image
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          style={{ width: "100%", height: "auto" }} // optional
+                          src="/goal.png"
+                          alt=""
+                        />
                         <CardTitle>Retos</CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -189,7 +218,14 @@ const Home: NextPage = () => {
                     </Card>
                     <Card>
                       <CardHeader>
-                        <img src={_nft.src} className="max-w-fit" />
+                        <Image
+                          src="/nft.png"
+                          width={0}
+                          height={0}
+                          sizes="90vw"
+                          style={{ width: "80%", height: "auto" }} // optional
+                          alt=""
+                        />
                         <CardTitle>Certificados de cursos</CardTitle>
                       </CardHeader>
                       <CardContent>
