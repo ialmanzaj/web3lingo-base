@@ -138,7 +138,7 @@ const Home: NextPage = () => {
                     <Card className="max-w-full">
                       <CardHeader>
                         <Image
-                          src="/guided.png"
+                          src="/guiado.png"
                           width={0}
                           height={0}
                           sizes="100vw"
