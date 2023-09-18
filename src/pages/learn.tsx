@@ -19,7 +19,7 @@ const Learn: NextPage = () => {
       <TopBar />
       <div className="row flex w-screen gap-4">
         <Sidebar />
-        <div className="flex w-full gap-2" >
+        <div className="flex w-full gap-2">
           <Journey />
           <RightBar />
         </div>
