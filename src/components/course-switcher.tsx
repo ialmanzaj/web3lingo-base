@@ -52,6 +52,10 @@ const courses_selection = [
     label: "Courses",
     courses: [
       {
+        label: "Intro a Blockchain",
+        value: "blockchain101",
+      },
+      {
         label: "Solidity",
         value: "solidity",
       },

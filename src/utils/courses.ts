@@ -31,7 +31,7 @@ const courses = [
   {
     name: "Blockchain 101",
     description:
-      "Explore the fundamentals of blockchain technology, cryptocurrencies, smart contracts, and real-world applications in this 10-week introductory course",
+      "Explora los fundamentos de la tecnología blockchain, criptomonedas, contratos inteligentes y aplicaciones del mundo real en este curso introductorio de 10 semanas de duración.",
     viewBox: "0 0 82 66",
     code: "en",
     href: "/wallets",
@@ -50,19 +50,19 @@ export const units: readonly Unit[] = [
     subtiles: [
       {
         type: "star",
-        description: "What is Blockchain?",
+        description: "Qué es Blockchain?",
       },
       {
         type: "book",
-        description: "History and Evolution of Blockchain",
+        description: "Historia y evolución de Blockchain",
       },
       {
         type: "star",
-        description: "Types of Blockchains (Public, Private, Consortium)",
+        description: "Tipos de Blockchains (Pública, Privada)",
       },
       {
         type: "book",
-        description: "Blockchain Components (Nodes, Wallets, Smart Contracts)",
+        description: "Componentes del blockchain (nodos, carteras, contratos inteligentes)",
       },
       { type: "book", description: "How Blocks and Transactions Work" },
       { type: "trophy", description: "Cryptography in Blockchain" },

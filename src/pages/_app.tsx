@@ -16,8 +16,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           src="https://analytics.umami.is/script.js"
           data-website-id="2699f40b-0888-4871-b219-e8ceb4b6ddfb"
         ></script>
-        <title>Aprendiendo DeFi | Web3</title>
-        <meta name="description" content="Aprende DeFi facil y divertido" />
+        <title>Web3lingo | Educacion en web3 facil y divertido</title>
+        <meta name="description" content="Aprende web3 facil y divertid" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={inter.className}>

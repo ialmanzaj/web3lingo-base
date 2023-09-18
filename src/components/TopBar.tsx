@@ -184,7 +184,7 @@ export const TopBar = ({
         <Link href="/" className="flex items-center">
           🚀
           <span className="self-center whitespace-nowrap text-2xl font-semibold ">
-            AprendiendoDeFi
+            Web3lingo
           </span>
         </Link>
 

@@ -54,9 +54,9 @@ const Home: NextPage = () => {
                         </div>
                       </CardContent>
                       <div>
-                        <Badge color="orange">Beginner</Badge>
+                        <Badge color="orange">Principiante</Badge>
                         <Badge color="blue">6 hours</Badge>
-                        <Badge color="green">Fundamentals</Badge>
+                        <Badge color="green">Fundamentos</Badge>
                       </div>
                     </div>
 

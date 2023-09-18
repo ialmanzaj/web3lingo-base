@@ -3,8 +3,22 @@ import React, { useState, FormEvent, useRef } from "react";
 import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 import type { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/toggle";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { UserNav } from "@/components/user-nav";
 
-import _appScreenshot from "../../public/app_screenshot.png";
+import _guided from "../../public/Guided.png";
+import _gamified from "../../public/game.png";
+import _nft from "../../public/nft.png";
+import _goal from "../../public/goal.png";
+import _puzzle from "../../public/puzzle.png";
 import _logosDefi from "../../public/defi-logos.svg";
 
 const Home: NextPage = () => {
@@ -33,17 +47,20 @@ const Home: NextPage = () => {
               <div className="flex flex-col gap-2">
                 <div className="mx-auto max-w-md px-4 text-center sm:max-w-2xl sm:px-6 lg:flex">
                   <div className="lg:py-18">
-                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                      <span className="block text-purple-600">Web3lingo </span>
+                    <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl">
+                      <span className="block text-purple-600">Web3lingo</span>
                       <span className="block text-black">
-                        A fun way <br></br>to learn crypto
+                        Una manera fácil y divertida de aprender sobre crypto
                       </span>
                     </h1>
                     <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                      Learn crypto at your own pace with guided, bite-sized
-                      education that&apos;s effective and fun. <br></br>
-                      <br></br> Join the waitlist to try the beta before
-                      it&apos;s publicly available.
+                      Aprende desde cero web3 a tu propio ritmo con una
+                      educación guiada, eficaz y divertida. <br></br>
+                      <br></br>
+                      <br></br>
+                      Únete a la lista de espera para ser parte de la versión
+                      beta y tendrás la oportunidad de ganar emocionantes
+                      recompensas exclusivas.
                     </p>
                     <div className="mt-10 sm:mt-12">
                       {/* This is a working waitlist form. Create your access key from https://web3forms.com/s to setup.  */}
@@ -75,7 +92,7 @@ const Home: NextPage = () => {
                               required
                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                               type="email"
-                              placeholder="Enter your email"
+                              placeholder="Introduce tu correo electrónico"
                               className="block w-full rounded-md border-0 bg-gray-200 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
                               defaultValue=""
                               autoComplete="off"
@@ -122,29 +139,76 @@ const Home: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="">
-                  <img
-                    className="h-2/3 w-full"
-                    src={_appScreenshot.src}
-                    alt=""
-                  />
-                  {/* <p
-                    style={{
-                      border: 0,
-                      width: "100%",
-                      marginBottom: 0,
-                      height: 450,
-                    }}
-                  >
-                    <iframe
-                      style={{ width: "100%", height: "100%" }}
-                      src="https://www.floik.com/embed/df86ce94-6eaf-4b1c-8f65-2ad84c76625a/07cd15d3-8b38-463e-85cd-1486167b52e5-flo.html?show-author=true"
-                      width="100%"
-                      height="450px"
-                      frameBorder={0}
-                      allowFullScreen={true}
-                    ></iframe>
-                  </p> */}
+                <div className="space-y-4 max-w-screen-sm	sm:max-w-full m-auto px-4">
+                  <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+                    <Card>
+                      <CardHeader>
+                        <img src={_guided.src} className="max-w-fit	" />
+                        <CardTitle>Lecciones breves y guiadas</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-s text-muted-foreground">
+                          Las lecciones breves e interactivas hacen que los
+                          conceptos resulten intuitivos, para que incluso las
+                          ideas más complejas encajen a la perfección.
+                        </p>
+                      </CardContent>
+                    </Card>
+
+                    <Card>
+                      <CardHeader>
+                        <img src={_gamified.src} className="max-w-fit" />
+                        <CardTitle>
+                          Experiencia gamificada, para hacerlo un hábito
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-s text-muted-foreground">
+                          Con cada desafío superado y misión completada, ganarás
+                          puntos. Sigue tu progreso, sube de nivel y comprueba
+                          lo lejos que has llegado.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  <div className="grid gap-4 grid-cols-1s md:grid-cols-3">
+                    <Card>
+                      <CardHeader>
+                        <img src={_puzzle.src} className="max-w-fit p-8" />
+                        <CardTitle>Tareas</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-s text-muted-foreground">
+                          Completa los quiz y tareas que ponen a prueba tu
+                          conocimiento y amplían tus habilidades.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardHeader>
+                        <img src={_goal.src} className="max-w-fit p-4" />
+                        <CardTitle>Retos</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-s text-muted-foreground">
+                          No solo tendras teoria sino que crearas proyectos
+                          reales.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardHeader>
+                        <img src={_nft.src} className="max-w-fit" />
+                        <CardTitle>Certificados de cursos</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-s text-muted-foreground">
+                          Completa un curso o una misión importante y ganarás un
+                          NFT, una insignia digital de tu éxito.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
               </div>
             </div>
