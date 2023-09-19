@@ -65,10 +65,16 @@ const Home: NextPage = () => {
                             <div className="text-xs sm:text-sm">
                               {success ? (
                                 <p>
-                                  ¡Felicidades! Estamos muy contentos de tenerte
-                                  aquí, Ya te hemos agregado a nuestra lista
-                                  de espera. Te avisaremos cuando esté listo
-                                  para probarlo.
+                                  ¡Felicidades! Ya te hemos agregado a nuestra
+                                  lista de espera. Te avisaremos cuando esté
+                                  listo para probarlo. Siguenos{" "}
+                                  <a
+                                    href="https://x.com/web3lingo_"
+                                    className="text-purple-600 hover:text-purple-500"
+                                  >
+                                    @web3lingo_
+                                  </a>{" "}
+                                  para estar al día.
                                 </p>
                               ) : (
                                 <p>

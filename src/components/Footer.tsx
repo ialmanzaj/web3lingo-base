@@ -9,8 +9,11 @@ export const Footer = () => {
           aria-label="Footer"
         >
           <div className="px-5 py-2">
-            <Link href="/about" className="text-base text-gray-500 hover:text-gray-900">
-              About
+            <Link
+              href="/about"
+              className="text-base text-gray-500 hover:text-gray-900"
+            >
+              Acerca
             </Link>
           </div>
           <div className="px-5 py-2">
@@ -24,23 +27,26 @@ export const Footer = () => {
               href="/privacy"
               className="text-base text-gray-500 hover:text-gray-900"
             >
-              Privacy policy
+              Política de privacidad
             </Link>
           </div>
         </nav>
         <div className="mt-8 flex justify-center space-x-6">
           <a
-            href="https://twitter.com/web3lingo_"
+            href="https://x.com/web3lingo_"
             className="text-gray-400 hover:text-gray-500"
           >
             <span className="sr-only">Twitter</span>
             <svg
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              className="h-6 w-6"
-              aria-hidden="true"
+              width="21.57"
+              height="19.5"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+              <path
+                d="M16.99 0h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L3.736 19.5H.426l7.73-8.835L0 0h6.826l4.713 6.231L16.99 0Zm-1.161 17.52h1.833L5.83 1.876H3.863L15.829 17.52Z"
+                fill="currentColor"
+              ></path>
             </svg>
           </a>
           <a
