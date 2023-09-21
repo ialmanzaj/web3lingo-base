@@ -15,7 +15,6 @@ import { Footer } from "@/components/Footer";
 
 const Home: NextPage = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
-
   const url =
     "https://aprendiendodefi.us21.list-manage.com/subscribe/post?u=3ef26e10472c36d247a54389e&amp;id=a6db9a6c12&amp;f_id=00745de1f0";
 

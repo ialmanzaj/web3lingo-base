@@ -9,29 +9,29 @@ import { LoginScreen, useLoginScreen } from "../components/LoginScreen";
 import { Sidebar } from "@/components/sidebar";
 import { Journey } from "@/components/Journey";
 
-const bgDeFi = _defi as StaticImageData;
-
 const Learn: NextPage = () => {
   const { loginScreenState, setLoginScreenState } = useLoginScreen();
 
   return (
     <>
-      <TopBar />
-      <div className="row flex w-screen gap-4">
-        <Sidebar />
-        <div className="flex w-full gap-2">
-          <Journey />
-          <RightBar />
-        </div>
-      </div>
-
-      <div className="pt-[90px]"></div>
-
-      <BottomBar selectedTab="Aprender" />
       <LoginScreen
         loginScreenState={loginScreenState}
         setLoginScreenState={setLoginScreenState}
       />
+
+      <TopBar />
+
+      <div className="row flex w-screen gap-4">
+        <Sidebar />
+        <div className="flex w-full gap-2">
+          <Journey />
+
+          <RightBar />
+        </div>
+      </div>
+      <div className="pt-[90px]"></div>
+
+      <BottomBar selectedTab="Aprender" />
     </>
   );
 };

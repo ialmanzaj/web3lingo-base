@@ -19,7 +19,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { TopBar } from "@/components/TopBar";
 
-const Home: NextPage = () => {
+const Dashboard: NextPage = () => {
   return (
     <main className="min-h-screen">
       <TopBar />
@@ -82,4 +82,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Dashboard;
