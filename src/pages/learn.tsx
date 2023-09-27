@@ -14,11 +14,6 @@ const Learn: NextPage = () => {
 
   return (
     <>
-      <LoginScreen
-        loginScreenState={loginScreenState}
-        setLoginScreenState={setLoginScreenState}
-      />
-
       <TopBar />
 
       <div className="row flex w-screen gap-4">
