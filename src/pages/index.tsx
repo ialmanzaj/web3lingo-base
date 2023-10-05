@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                     <h1 className="mt-4 text-4xl font-bold tracking-tight text-black sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl">
                       <span className="block text-purple-600">Web3lingo</span>
                       <span className="block text-black">
-                        Una manera fácil y divertida de aprender sobre crypto
+                        La manera fácil y divertida de aprender sobre crypto
                       </span>
                     </h1>
                     <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
