@@ -45,7 +45,7 @@ const Home: NextPage = () => {
                       </span>
                     </h1>
                     <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                      AAprende desarrollo de contratos inteligentes desde cero, en solidity, Rust, EVM, complemente gratuito a tu propio ritmo con una
+                      Aprende desarrollo de contratos inteligentes desde cero, en solidity, Rust, EVM, complemente gratuito a tu propio ritmo con una
                       educación guiada, eficaz y divertida. <br></br>
                       <br></br>
                       <br></br>
